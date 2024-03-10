@@ -1,0 +1,249 @@
+element.style {
+}
+.stack.padding-none.svelte-1cd1boi {
+  padding: 0;
+}
+.stack.gap-none.svelte-1cd1boi {
+  gap: 0;
+}
+.stack.y-center.svelte-1cd1boi {
+  align-items: center;
+}
+.stack.x-flex-end.svelte-1cd1boi {
+  justify-content: flex-end;
+}
+.stack.direction-horizontal.svelte-1cd1boi {
+  grid-auto-flow: column;
+}
+.stack.svelte-1cd1boi {
+  display: grid;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+*,
+:before,
+:after {
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(20 117 225 / 0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+}
+user agent stylesheet div {
+  display: block;
+}
+style attribute {
+  --header-zIndex: 100;
+  padding-right: 6px;
+}
+body {
+  background: var(--grey-600);
+  color: var(--grey-200);
+  font-family: proxima-nova, sans-serif;
+  cursor: default;
+}
+body {
+  box-sizing: border-box;
+  line-height: 1;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+}
+:root {
+  --blue-100: #d0e3f9;
+  --blue-200: #a1c8f3;
+  --blue-300: #72aced;
+  --blue-400: #4391e7;
+  --blue-500: #1475e1;
+  --blue-600: #105eb4;
+  --blue-700: #0c4687;
+  --blue-800: #082f5a;
+  --blue-900: #04172d;
+  --red-100: #fbcfd8;
+  --red-200: #f6a0b1;
+  --red-300: #f2708a;
+  --red-400: #ed4163;
+  --red-500: #e9113c;
+  --red-600: #ba0e02;
+  --red-700: #8c0a24;
+  --red-800: #5d0718;
+  --red-900: #2f030c;
+  --purple-100: #dcccff;
+  --purple-200: #be8fff;
+  --purple-300: #b061ff;
+  --purple-400: #962eff;
+  --purple-500: #9000ff;
+  --purple-600: #7100c7;
+  --purple-700: #590099;
+  --purple-800: #2d004d;
+  --purple-900: #1e0132;
+  --green-100: #ccffcc;
+  --green-200: #8fff8f;
+  --green-300: #57ff57;
+  --green-400: #1fff20;
+  --green-500: #00e701;
+  --green-600: #00b801;
+  --green-700: #008a01;
+  --green-800: #004d00;
+  --green-900: #013e01;
+  --yellow-100: #fff2dd;
+  --yellow-200: #ffdeaa;
+  --yellow-300: #ffcc7b;
+  --yellow-400: #ffb949;
+  --yellow-500: #ff9d00;
+  --yellow-600: #cd7f01;
+  --yellow-700: #9c6000;
+  --yellow-800: #633d00;
+  --yellow-900: #301d00;
+  --grey-100: #d5dceb;
+  --grey-200: #b1bad3;
+  --grey-300: #557086;
+  --grey-400: #2f4553;
+  --grey-500: #213743;
+  --grey-600: #1a2c38;
+  --grey-700: #0f212e;
+  --grey-800: #071d2a;
+  --grey-900: #071824;
+  --white: #fff;
+  --black: #000;
+}

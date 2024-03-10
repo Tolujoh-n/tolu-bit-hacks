@@ -20,7 +20,7 @@ const Modal = ({ onClose, onSubmit }) => {
         <div className="maincard">
           <div className="card info-card revenue-card">
             <div className="card-body">
-              <h6 style={{ color: "gold" }}>The Gamifield quests onboard</h6>
+              <h6 style={{ color: "white" }}>The Gamifield quests onboard</h6>
               <div className="d-flex align-items-center">
                 <div className="">
                   <img
@@ -51,7 +51,7 @@ const Modal = ({ onClose, onSubmit }) => {
 
           <div>
             <p>
-              <b style={{ color: "goldenrod", fontSize: "20px" }}>
+              <b style={{ color: "white", fontSize: "20px" }}>
                 Description:{" "}
               </b>
               <span style={{ color: "white" }}>
@@ -62,7 +62,7 @@ const Modal = ({ onClose, onSubmit }) => {
           </div>
           <div className="form-group">
             <label className="css-1owdu0o">
-              <div className="css-zkfaav" style={{ color: "gold" }}>
+              <div className="css-zkfaav" style={{ color: "white" }}>
                 Enter Wallet Adress
               </div>
             </label>
@@ -134,7 +134,7 @@ const cancelbut = {
 const submitbut = {
   /* Your button style here */
   padding: "8px 12px",
-  backgroundColor: "goldenrod",
+  backgroundColor: "white",
   color: "black",
   border: "none",
   borderRadius: "4px",

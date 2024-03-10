@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import xp from "../assets/xp.jpg";
-import ll from "../assets/ll.png";
+import stx from "../assets/img/stacks.png";
+import btc from "../assets/img/btc.png";
 import useimage from "../assets/address.jpg";
 import Modal from "./Modal";
 
 const Ongoinggm = [
-  { id: 1, title: "ongoing quest title", reward: "30", level: "1" },
-  { id: 2, title: "ongoing quest title", reward: "15", level: "6" },
-  { id: 3, title: "ongoing quest title", reward: "10", level: "3" },
-  { id: 4, title: "ongoing quest title", reward: "25", level: "5" },
-  { id: 5, title: "ongoing quest title", reward: "20", level: "2" },
+  { id: 1, title: "ongoing que", reward: "30", level: "1" },
+  { id: 2, title: "ongoing que", reward: "15", level: "6" },
+  { id: 3, title: "ongoing que", reward: "10", level: "3" },
+  { id: 4, title: "ongoing que", reward: "25", level: "5" },
+  { id: 5, title: "ongoing que", reward: "20", level: "2" },
 ];
 
 const Sidebar = () => {
@@ -39,20 +39,20 @@ const Sidebar = () => {
             <div className="d-flex align-items-center">
               <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
                 {/* <i className="fas fa-dollar-sign"></i>  */}
-                <img id="balance" src={xp} alt="" />
+                <img id="balance" src={stx} alt="" />
               </div>
               <div className="ps-3">
-                <h6>0 XP</h6>
+                <h6>0 STX</h6>
               </div>
             </div>
             <hr />
             <div className="d-flex align-items-center">
               <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
                 {/* <i className="fas fa-dollar-sign"></i>  */}
-                <img id="balance" src={ll} alt="" />
+                <img id="balance" src={btc} alt="" />
               </div>
               <div className="ps-3">
-                <h6>0 LL</h6>
+                <h6>0 BTC</h6>
               </div>
             </div>
           </div>
@@ -62,15 +62,15 @@ const Sidebar = () => {
         {/* News & Updates Traffic */}
         <div className="card">
           <div className="card-body pb-0">
-            <h5 className="card-title">Ongoing Games</h5>
+            <h5 className="card-title">Top Genius</h5>
             <div className="news">
               {Ongoinggm.map((card) => (
                 <div
                   key={card.id}
                   className="post-item clearfix"
                   style={{
-                    borderRadius: "20px",
-                    border: "1px solid white",
+                    background: "#213743",
+                    borderRadius: "5px",
                     marginBottom: "10px",
                     padding: "10px",
                   }}
@@ -80,32 +80,26 @@ const Sidebar = () => {
                     <a href="#">{card.title}</a>
                   </h4>
                   <p>
-                    <b>00 : 00 : 00</b>
-                    <span style={{ color: "whitesmoke" }}>
-                      {" "}
-                      Level {card.level}
-                    </span>
+                    <div className="d-flex justify-content-between align-items-center">
+                      {/* First word with icon */}
+                      <div>
+                        <span style={{ color: "#b1bad3" }}>
+                          {" "}
+                          Quiz Won: {card.level}
+                        </span>
+                      </div>
+                      {/* Second word */}
+                      <div>
+                        <button onClick={handleGamemodalClick} id="followbtn">
+                          Follow
+                        </button>
+                      </div>
+                    </div>
                   </p>
-                  <span
-                    style={{
-                      color: "gold",
-                      fontFamily: "fantasy",
-                      fontSize: "medium",
-                    }}
-                  >
-                    {card.reward} xp
-                  </span>
-                  <button onClick={handleGamemodalClick} id="followbtn">
-                    Enter
-                  </button>
                 </div>
               ))}
             </div>
-            <div className="text-center">
-              <Link to="/quests">
-                <button id="followbtn">View All</button>
-              </Link>
-            </div>
+
             {/* End sidebar recent posts */}
           </div>
         </div>

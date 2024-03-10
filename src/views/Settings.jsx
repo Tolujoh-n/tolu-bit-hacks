@@ -1,6 +1,6 @@
 import React from "react";
 import profile from "../assets/address.jpg";
-import AddQuestForm from "../components/AddQuestForm";
+import AddQuestForm from "../components/AddQuizForm";
 import Gamelist from "../components/Gamelist";
 
 function Settings() {
@@ -10,7 +10,7 @@ function Settings() {
         <section className="section profile">
           <div className="row">
             <div className="col-xl-12">
-              <div className="card">
+              <div style={{ background: "#213743" }} className="card">
                 <div className="card-body pt-3">
                   <ul className="nav nav-tabs nav-tabs-bordered">
                     <li className="nav-item">

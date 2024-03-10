@@ -24,12 +24,38 @@ const Navbar = () => {
         ></i>
         <Link to="/" className="logo d-flex align-items-center">
           <img src={logo} alt="" className="h-[70px] w-[70px] object-cover" />
-          <span className="d-none d-lg-block">ChainXP</span>
+          <span className="d-none d-lg-block">Geniusmind</span>
         </Link>
       </div>
       {/* End Logo */}
 
-      {/* End Search Bar */}
+      {/* search bar */}
+      <div className="search-bar">
+        <form
+          className="search-form d-flex align-items-center"
+          method="POST"
+          action="#"
+        >
+          <input
+            style={{ padding: "10px", borderRadius: "20px" }}
+            type="text"
+            name="query"
+            placeholder="Search"
+            title="Enter search keyword"
+          />
+          <button
+            style={{
+              background: "#2f4553",
+              padding: "10px",
+              borderRadius: "50%",
+            }}
+            type="submit"
+            title="Search"
+          >
+            <i className="bi bi-search"></i>
+          </button>
+        </form>
+      </div>
       <nav className="header-nav ms-auto">
         <ul className="d-flex align-items-center">
           <li class="nav-item">
@@ -60,7 +86,7 @@ const Navbar = () => {
             </>
           ) : (
             <li className="nav-item pe-3">
-              <button type="button" className="btn btn-warning">
+              <button type="button" className="btn btn-primary">
                 Connect Wallet
               </button>
             </li>

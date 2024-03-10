@@ -8,13 +8,9 @@ const cardData = [
   { name: "Idan usbw ffefef", reward: "20", level: "3", id: 3 },
   { name: "besos corn", reward: "25", level: "4", id: 4 },
   { name: "nacy colen fdsi udf dfdf", reward: "30", level: "5", id: 5 },
-  { name: "nacy colenhf", reward: "40", level: "6", id: 6 },
-  { name: "nacy colenhf", reward: "40", level: "6", id: 7 },
-  { name: "nacy colenhf", reward: "40", level: "6", id: 8 },
-  { name: "nacy colenhf", reward: "40", level: "6", id: 9 },
 ];
 
-const Quests = () => {
+const Allquiz = () => {
   const [isGamemodalOpen, setIsGamemodalOpen] = useState(false);
 
   const handleGamemodalClick = () => {
@@ -40,39 +36,36 @@ const Quests = () => {
 
             <div className="row">
               {cardData.map((card) => (
-                <div key={card.id} className="col-lg-4">
-                  <div
-                    className=""
-                    style={{
-                      borderRadius: "20px",
-                      border: "1px solid white",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    <div className="card-body pb-0">
-                      <div className="news">
-                        <div className="post-item clearfix">
-                          <img src={useimage} alt="" />
+                <div key={card.id} className="col-lg-6">
+                  <div className="card info-card revenue-card">
+                    <div className="card-body">
+                      <div className="d-flex align-items-center">
+                        <div className="">
+                          <img
+                            src={useimage}
+                            style={{
+                              height: "10rem",
+                              width: "100px",
+                              borderRadius: "10px",
+                            }}
+                            alt=""
+                          />
+                        </div>
+                        <div className="ps-3">
                           <h4>
                             <a href="#">{card.name}</a>
                           </h4>
                           <p>
-                            <b>00 : 00 : 00</b>
-                            <span style={{ color: "whitesmoke" }}>
-                              {" "}
-                              Level {card.level}
-                            </span>
+                            Lorem ipsum dolor sit amet, tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim
+                            veniam
                           </p>
-                          <span
-                            style={{
-                              color: "gold",
-                              fontFamily: "fantasy",
-                              fontSize: "medium",
-                            }}
+
+                          <button
+                            className="text-right"
+                            onClick={handleGamemodalClick}
+                            id="followbtn"
                           >
-                            {card.reward} xp
-                          </span>
-                          <button onClick={handleGamemodalClick} id="followbtn">
                             Enter
                           </button>
                         </div>
@@ -96,4 +89,4 @@ const Quests = () => {
   );
 };
 
-export default Quests;
+export default Allquiz;

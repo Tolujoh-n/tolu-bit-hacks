@@ -1,3 +1,10 @@
+/* Notation
+backgroung: #1a2c38
+
+*/
+
+/* followbtn */
+
 /*--------------------------------------------------------------
 # General profile
 --------------------------------------------------------------*/
@@ -29,26 +36,27 @@ table.custom-table {
 
 table.custom-table th,
 table.custom-table td {
-  border-bottom: 1px solid gold;
+  border-bottom: 1px solid whitesmoke;
   padding: 8px;
   color: #fff;
 }
 
 table.custom-table th {
   background-color: transparent;
-  color: gold;
+  color: whitesmoke;
 }
 
 #followbtn {
-  background-color: gold;
-  color: black;
-  border-radius: 10px;
+  background: transparent;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 5px;
   padding: 7px;
   margin-left: 15px;
 }
 #followbtn:hover {
   color: white;
-  background-color: #2c384e;
+  background-color: #557086;
 }
 #posttesat {
   width: 300px;
@@ -60,13 +68,12 @@ table.custom-table th {
 }
 body {
   font-family: "Open Sans", sans-serif;
-  background: linear-gradient(to right, #c33764, #1d2671);
-  /* background: #f6f9ff; */
+  background: #1a2c38;
   color: rgb(241, 238, 217);
 }
 
 a {
-  color: gold;
+  color: whitesmoke;
   text-decoration: none;
 }
 
@@ -264,11 +271,10 @@ h6 {
 
 /* Card */
 .card {
-  border: 1px solid white !important;
-  background-color: transparent !important;
-  margin-bottom: 30px !important;
-  border-radius: 15px 50px !important;
-  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1) !important;
+  background-color: #0f212e;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
 }
 
 .card-header,
@@ -288,7 +294,7 @@ h6 {
 }
 
 .card-title span {
-  color: gold;
+  color: whitesmoke;
   font-size: 14px;
   font-weight: 400;
 }
@@ -354,12 +360,12 @@ h6 {
 .breadcrumb {
   font-size: 14px;
   font-family: "Nunito", sans-serif;
-  color: gold;
+  color: whitesmoke;
   font-weight: 600;
 }
 
 .breadcrumb a {
-  color: gold;
+  color: whitesmoke;
   transition: 0.3s;
 }
 
@@ -368,11 +374,11 @@ h6 {
 }
 
 .breadcrumb .breadcrumb-item::before {
-  color: gold;
+  color: whitesmoke;
 }
 
 .breadcrumb .active {
-  color: gold;
+  color: whitesmoke;
   font-weight: 600;
 }
 
@@ -427,10 +433,11 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   height: 60px;
-  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background: linear-gradient(to left, #c33764, #1d2671);
+  /* box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1); */
+  box-shadow: #0003 0 4px 6px -1px, #0000001f 0 2px 4px -1px;
+  touch-action: none;
+  background: #1a2c38;
   padding-left: 20px;
-  border-bottom: 1px solid white;
   /* Toggle Sidebar Button */
   /* Search Bar */
 }
@@ -657,9 +664,8 @@ h6 {
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #aab7cf transparent;
-  border-right: 1px solid white;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
-  background: transparent;
+  background: #0f212e;
 }
 
 @media (max-width: 1199px) {
@@ -707,6 +713,8 @@ h6 {
   }
 }
 .sidebar-nav {
+  background: #1a2c38;
+  border-radius: 5px;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -725,7 +733,7 @@ h6 {
 .sidebar-nav .nav-heading {
   font-size: 11px;
   text-transform: uppercase;
-  color: gold;
+  color: whitesmoke;
   font-weight: 600;
   margin: 10px 0 5px 15px;
 }
@@ -734,11 +742,9 @@ h6 {
   display: flex;
   align-items: center;
   font-size: 15px;
-  box-shadow: #1d2671;
   font-weight: 600;
   color: #fff;
   transition: 0.3;
-  background: #1d2671;
   padding: 10px 15px;
   border-radius: 4px;
 }
@@ -759,12 +765,11 @@ h6 {
 }
 
 .sidebar-nav .nav-link:hover {
-  color: black;
-  background: rgb(240, 93, 191);
+  background: #2f4553;
 }
 
 .sidebar-nav .nav-link:hover i {
-  color: gold;
+  color: whitesmoke;
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
@@ -802,7 +807,7 @@ h6 {
 
 .sidebar-nav .nav-content a:hover,
 .sidebar-nav .nav-content a.active {
-  color: gold;
+  color: whitesmoke;
 }
 
 .sidebar-nav .nav-content a.active i {
@@ -853,6 +858,7 @@ h6 {
 /* Info Cards */
 .dashboard .info-card {
   padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .dashboard .info-card h6 {
@@ -1056,11 +1062,11 @@ h6 {
 .profile .profile-card h2 {
   font-size: 24px;
   font-weight: 700;
-  color: gold;
+  color: whitesmoke;
   margin: 10px 0 0 0;
 }
 #profiletitle {
-  color: gold;
+  color: whitesmoke;
 }
 
 .profile .profile-card h3 {
@@ -1092,17 +1098,17 @@ h6 {
 }
 
 .profile .profile-overview .card-title {
-  color: gold;
+  color: whitesmoke;
 }
 
 .profile .profile-overview .label {
   font-weight: 600;
-  color: gold;
+  color: whitesmoke;
 }
 
 .profile .profile-edit label {
   font-weight: 600;
-  color: gold;
+  color: whitesmoke;
 }
 
 .profile .profile-edit img {
@@ -1238,7 +1244,7 @@ h6 {
   background: whitesmoke;
 }
 #usebutcases {
-  background-color: gold;
+  background-color: whitesmoke;
   color: #242222;
 }
 @keyframes animate-loading {
@@ -1274,7 +1280,7 @@ h6 {
 }
 
 .error-404 .btn {
-  background: gold;
+  background: whitesmoke;
   color: #fff;
   padding: 8px 30px;
 }
@@ -1297,7 +1303,7 @@ h6 {
 .faq .content h3 {
   font-weight: 400;
   font-size: 34px;
-  color: gold;
+  color: whitesmoke;
 }
 
 .faq .content p {
@@ -1326,16 +1332,16 @@ h6 {
   cursor: pointer;
   display: flex;
   align-items: flex-start;
-  color: gold;
+  color: whitesmoke;
 }
 
 .faq .faq-container .faq-item h3 .num {
-  color: gold;
+  color: whitesmoke;
   padding-right: 5px;
 }
 
 .faq .faq-container .faq-item h3:hover {
-  color: goldenrod;
+  color: whitesmokeenrod;
 }
 
 .faq .faq-container .faq-item .faq-content {
@@ -1363,11 +1369,11 @@ h6 {
 }
 
 .faq .faq-container .faq-item .faq-toggle:hover {
-  color: gold;
+  color: whitesmoke;
 }
 
 .faq .faq-container .faq-active h3 {
-  color: gold;
+  color: whitesmoke;
 }
 
 .faq .faq-container .faq-active .faq-content {
@@ -1379,17 +1385,18 @@ h6 {
 
 .faq .faq-container .faq-active .faq-toggle {
   transform: rotate(90deg);
-  color: gold;
+  color: whitesmoke;
 }
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 .footer {
+  background: #071d2a;
   padding: 20px 0;
   font-size: 14px;
   transition: all 0.3s;
-  border-top: 1px solid #cddfff;
+  box-shadow: #0003 0 4px 6px -1px, #0000001f 0 2px 4px -1px;
 }
 
 .footer .copyright {

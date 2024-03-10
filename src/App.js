@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./views/Home";
 import Navbar from "./components/Navbar";
-import GameTab from "./components/GameTab";
+import GameTab from "./components/Quizcategory";
 import Settings from "./views/Settings";
-import Quests from "./views/Quests";
-import Games from "./components/Games";
-
+import Genius from "./views/Allquiz";
+import Topquiz from "./components/Topquiz";
+import Footer from "./components/Footer";
 // Css files
 import "./assets/vendor/simple-datatables/style.css";
 import "./assets/vendor/remixicon/remixicon.css";
@@ -30,14 +30,15 @@ const App = () => {
             <div className="row">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/games" element={<Games />} />
+                <Route path="/topquiz" element={<Topquiz />} />
                 <Route path="/settings" element={<Settings />} />
-                <Route path="/quests" element={<Quests />} />
+                <Route path="/genius" element={<Genius />} />
               </Routes>
             </div>
           </section>
         </main>
       </Router>
+      <Footer />
     </div>
   );
 };

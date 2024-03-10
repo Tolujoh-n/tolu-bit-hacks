@@ -40,7 +40,7 @@ const styles = {
   },
 };
 
-const QuestForm = ({ totalLevels }) => {
+const QuizForm = ({ totalLevels }) => {
   const [quests, setQuests] = useState([]);
 
   const handleAddQuest = () => {
@@ -130,7 +130,7 @@ const QuestForm = ({ totalLevels }) => {
   );
 };
 
-const AddQuestForm = () => {
+const AddQuizForm = () => {
   const [gameInfo, setGameInfo] = useState({
     gameImage: "",
     gameName: "",
@@ -177,10 +177,10 @@ const AddQuestForm = () => {
         Preview Image
       </button> */}
       {gameInfo.totalLevels > 0 && (
-        <QuestForm totalLevels={gameInfo.totalLevels} />
+        <QuizForm totalLevels={gameInfo.totalLevels} />
       )}
     </div>
   );
 };
 
-export default AddQuestForm;
+export default AddQuizForm;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import GameInfo from "../components/GameInfo";
-import Quest from "../components/Quest";
+import Quest from "../components/Genius";
 import logo from "../assets/address.jpg";
 import Modal from "../components/Modal";
 
@@ -26,7 +26,7 @@ const Home = () => {
         <div className="row">
           <Quest />
 
-          {/* End games */}
+          {/* End quiz */}
         </div>
       </div>
 
