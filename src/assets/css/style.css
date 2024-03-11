@@ -58,6 +58,20 @@ table.custom-table th {
   color: white;
   background-color: #557086;
 }
+#optionbut {
+  background: #213743;
+  width: 100%;
+  border: 1px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+#optionbut:hover,
+#optionbut:active {
+  color: white;
+  background-color: #557086;
+}
 
 #enterquiz {
   background: transparent;

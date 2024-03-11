@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import logo from "../assets/address.jpg";
 
 const Modal = ({ onClose, onSubmit }) => {
-  const [field1, setField1] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Close the modal
-    onClose();
+  const handleOptionClick = () => {
+    const optionButton = document.getElementById("optionbut");
+    optionButton.classList.toggle("active");
   };
 
   return (
@@ -16,73 +13,101 @@ const Modal = ({ onClose, onSubmit }) => {
         <span style={{ cursor: "pointer" }} className="close" onClick={onClose}>
           &times;
         </span>
-        <h2 style={header}>GAME DETAILS</h2>
+        <div className="d-flex justify-content-between align-items-center">
+          {/* First word with icon */}
+          <div>
+            <span style={{ color: "#b1bad3" }}>Question: 1 / 20</span>
+          </div>
+          {/* Second word */}
+          <div>
+            <span style={{ color: "#b1bad3" }}>00:00:00</span>
+          </div>
+        </div>
         <div className="maincard">
-          <div className="card info-card revenue-card">
+          <div
+            style={{
+              background: "#213743",
+              border: "5px solid #b1bad3",
+              borderStyle: "dashed",
+            }}
+            className="card info-card revenue-card"
+          >
             <div className="card-body">
-              <h6 style={{ color: "white" }}>The Gamifield quests onboard</h6>
-              <div className="d-flex align-items-center">
-                <div className="">
-                  <img
-                    src={logo}
-                    style={{
-                      height: "100%",
-                      width: "100px",
-                      borderRadius: "10px",
-                    }}
-                    alt=""
-                  />
+              <h6 style={{ color: "#d5dceb" }}>
+                Which prestigious university did Microsoft founder Bill Gates
+                drop out of?
+              </h6>
+            </div>
+          </div>
+
+          <div className="container">
+            <div className="row">
+              <div className="col">
+                <div className="d-flex justify-content-between">
+                  {/* option */}
+                  <div className="flex-fill mr-2">
+                    <button
+                      onClick={handleOptionClick}
+                      className="btn btn-primary btn-block"
+                      id="optionbut"
+                    >
+                      Option 1
+                    </button>
+                  </div>
+                  {/* Second word */}
+                  <div className="flex-fill ml-2">
+                    <button
+                      onClick={handleOptionClick}
+                      className="btn btn-primary btn-block"
+                      id="optionbut"
+                    >
+                      Option 2
+                    </button>
+                  </div>
                 </div>
-                <div className="ps-3">
-                  <h5 className="c" style={{ color: "whitesmoke" }}>
-                    <b> Game: </b> The game title.
-                  </h5>
-                  <h5 className="c" style={{ color: "whitesmoke" }}>
-                    <b> Current Level: </b> 3
-                  </h5>
-                  <h5 className="c" style={{ color: "whitesmoke" }}>
-                    <b> Duration: </b>{" "}
-                    <span style={{ color: "gray" }}>00 : 00 : 00</span>
-                  </h5>
+              </div>
+            </div>
+            <br />
+            <div className="row">
+              <div className="col">
+                <div className="d-flex justify-content-between">
+                  {/* option */}
+                  <div className="flex-fill mr-2">
+                    <button
+                      onClick={handleOptionClick}
+                      className="btn btn-primary btn-block"
+                      id="optionbut"
+                    >
+                      Option 3
+                    </button>
+                  </div>
+                  {/* Second word */}
+                  <div className="flex-fill ml-2">
+                    <button
+                      onClick={handleOptionClick}
+                      className="btn btn-primary btn-block"
+                      id="optionbut"
+                    >
+                      Option 4
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div>
-            <p>
-              <b style={{ color: "white", fontSize: "20px" }}>
-                Description:{" "}
-              </b>
-              <span style={{ color: "white" }}>
-                Your swap is performed directly in Curve protocol ashb
-                silysgulidg ldisglyid gls iuyg lausy afsfuak stf sftf
-              </span>
-            </p>
-          </div>
-          <div className="form-group">
-            <label className="css-1owdu0o">
-              <div className="css-zkfaav" style={{ color: "white" }}>
-                Enter Wallet Adress
-              </div>
-            </label>
-            <input
-              type="number"
-              className="form-control"
-              placeholder="oxwjk....evkvbh"
-              value={field1}
-              onChange={(e) => setField1(e.target.value)}
-              required
-            />
-          </div>
-
           <br />
-          <button style={cancelbut} type="button" className="button-style">
-            Enter
-          </button>
-          <button style={submitbut} type="submit" className="button-style">
-            Claim Rewards
-          </button>
+          <div className="d-flex justify-content-between align-items-center">
+            {/* First word with icon */}
+            <div>
+              <button id="followbtn">Previous</button>
+              <button id="followbtn">Next</button>
+            </div>
+            {/* Second word */}
+            <div>
+              <button id="followbtn">Submit</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -112,13 +137,14 @@ const modalContentStyle = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "40%",
-  background: "linear-gradient(to left, #c33764, #1d2671)",
+  maxWidth: "80%",
+  width: "auto",
+  minWidth: "300px",
+  background: "#1a2c38",
   borderRadius: "8px",
   padding: "20px",
   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
 };
-
 const cancelbut = {
   /* Your button style here */
   padding: "8px 12px",
