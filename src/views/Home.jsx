@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
-import GameInfo from "../components/GameInfo";
-import Quest from "../components/Genius";
+import Quizlist from "../components/organizer/Quizlist";
+import Genius from "../components/Genius";
 import logo from "../assets/address.jpg";
 import Modal from "../components/Modal";
 
@@ -24,7 +24,7 @@ const Home = () => {
     <>
       <div className="col-lg-8">
         <div className="row">
-          <Quest />
+          <Genius />
 
           {/* End quiz */}
         </div>

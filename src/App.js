@@ -7,6 +7,7 @@ import Settings from "./views/Settings";
 import Genius from "./views/Allquiz";
 import Topquiz from "./components/Topquiz";
 import Footer from "./components/Footer";
+import QuizInfo from "./components/QuizInfo"
 // Css files
 import "./assets/vendor/simple-datatables/style.css";
 import "./assets/vendor/remixicon/remixicon.css";
@@ -33,6 +34,7 @@ const App = () => {
                 <Route path="/topquiz" element={<Topquiz />} />
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/genius" element={<Genius />} />
+                <Route path="/quizInfo" element={<QuizInfo />} />
               </Routes>
             </div>
           </section>

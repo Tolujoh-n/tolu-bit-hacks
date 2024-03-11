@@ -1,7 +1,7 @@
 import React from "react";
 import profile from "../assets/address.jpg";
 import AddQuestForm from "../components/AddQuizForm";
-import Gamelist from "../components/Gamelist";
+import Quizlist from "../components/organizer/Quizlist";
 
 function Settings() {
   return (
@@ -301,7 +301,7 @@ function Settings() {
                     </div>
 
                     <div className="tab-pane fade pt-3" id="game-list">
-                      <Gamelist />
+                      <Quizlist />
                     </div>
 
                     <div className="tab-pane fade pt-3" id="profile-settings">

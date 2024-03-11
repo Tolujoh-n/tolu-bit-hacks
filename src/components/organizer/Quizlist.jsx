@@ -97,7 +97,7 @@ const QuestForm = ({ quests, handleQuestChange, handleAddQuest }) => {
   );
 };
 
-const GameListComponent = ({ games, handleEditGame, handleSaveEditedGame }) => {
+const QuizListComponent = ({ games, handleEditGame, handleSaveEditedGame }) => {
   const [editingGame, setEditingGame] = useState(null);
 
   const handleEdit = (game) => {
@@ -160,7 +160,7 @@ const GameListComponent = ({ games, handleEditGame, handleSaveEditedGame }) => {
   );
 };
 
-const Gamelist = () => {
+const Quizlist = () => {
   const [games, setGames] = useState([
     {
       gameName: "Sample Game 1",
@@ -218,7 +218,7 @@ const Gamelist = () => {
 
   return (
     <div style={styles.container}>
-      <GameListComponent
+      <QuizListComponent
         games={games}
         handleEditGame={handleEditGame}
         handleSaveEditedGame={handleSaveEditedGame}
@@ -227,4 +227,4 @@ const Gamelist = () => {
   );
 };
 
-export default Gamelist;
+export default Quizlist;
