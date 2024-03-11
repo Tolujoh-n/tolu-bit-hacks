@@ -15,6 +15,7 @@ const Leaderboard = () => {
             >
               <li className="nav-item">
                 <button
+                  style={{ color: "white" }}
                   className="nav-link active"
                   data-toggle="tab"
                   data-target="#game-settings"
@@ -25,6 +26,7 @@ const Leaderboard = () => {
 
               <li className="nav-item">
                 <button
+                  style={{ color: "white" }}
                   className="nav-link"
                   data-toggle="tab"
                   data-target="#game-list"
@@ -35,11 +37,19 @@ const Leaderboard = () => {
             </ul>
             <br />
             <div className="tab-content pt-2">
-              <div className="tab-pane fade show active" id="game-settings">
+              <div
+                style={{ borderRadius: "5px" }}
+                className="tab-pane fade show active"
+                id="game-settings"
+              >
                 <Topgenius />
               </div>
 
-              <div className="tab-pane fade" id="game-list">
+              <div
+                style={{ borderRadius: "5px" }}
+                className="tab-pane fade"
+                id="game-list"
+              >
                 <Toporganizer />
               </div>
             </div>

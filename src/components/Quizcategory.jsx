@@ -15,7 +15,8 @@ const quizcategory = [
 const userlist = [
   { id: 1, name: "Wallet", icon: "bi-book" },
   { id: 2, name: "Notification", icon: "bi-book" },
-  { id: 3, name: "Profile", icon: "bi-book" },
+  { id: 3, name: "Leatherboard", icon: "bi-book" },
+  { id: 4, name: "Profile", icon: "bi-book" },
 ];
 
 const Quizcategory = () => {

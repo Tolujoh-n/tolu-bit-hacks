@@ -3,73 +3,75 @@ import pic from "../../assets/address.jpg";
 
 const tableData = [
   {
-    collection: "The Ninjas",
-    collectionimg: pic,
-    volume: 20.4,
-    change: 12,
-    floor: 0.56,
-    sale: 60,
+    organizer: "Ninjas",
+    organizerimg: pic,
+    ranking: 1,
+    Host: 10,
+    pool: 40000,
     status: "Star",
   },
   {
-    collection: "Toxic Aliens",
-    collectionimg: pic,
-    volume: 25.43,
-    change: 12,
-    floor: 0.56,
-    sale: 60,
+    organizer: "Toxic Aliens",
+    organizerimg: pic,
+    ranking: 2,
+    Host: 8,
+    pool: 1200,
     status: "Star",
   },
   {
-    collection: "Injective Pepes",
-    collectionimg: pic,
-    volume: 33.4,
-    change: 12,
-    floor: 0.56,
-    sale: 50,
+    organizer: "Injective",
+    organizerimg: pic,
+    ranking: 3,
+    Host: 5,
+    pool: 800,
     status: "Star",
   },
   {
-    collection: "The Rugberbs",
-    collectionimg: pic,
-    volume: 30.4,
-    change: 12,
-    floor: 0.56,
-    sale: 60,
+    organizer: "META",
+    organizerimg: pic,
+    ranking: 1,
+    Host: 5,
+    pool: 230,
     status: "Star",
   },
 ];
 
 const Toporganizer = () => {
   return (
-    <div style={{ overflowX: "auto" }} className="col-12">
+    <div style={{ borderRadius: "5px", overflowX: "auto" }} className="col-12">
       <table className="responsive-table">
         <thead>
           <tr className="table-header">
-            <th className="col col-1">Collection</th>
-            <th className="col col-2 text-center">Volume</th>
-            <th className="col col-3">Change</th>
-            <th className="col col-3">Floor Price</th>
-            <th className="col col-5">sales</th>
-            <th className="col col-6">star</th>
+            <th className="col col-1">Ranking</th>
+            <th className="col col-2">Organizer</th>
+
+            <th className="col col-3">Quiz Host</th>
+            <th className="col col-4">Pool</th>
+            <th className="col col-5"></th>
           </tr>
         </thead>
         <tbody>
           {tableData.map((row, index) => (
             <tr key={index} className="table-row">
+              <td className="col col-1" data-label="Customer Name">
+                <div className="text-center">
+                  <h5>{row.ranking}</h5>
+                </div>
+              </td>
               <td
-                className="col col-1"
+                className="col col-2"
                 data-label="Job Id"
                 style={{ display: "flex", alignItems: "center" }}
               >
                 <img
-                  src={row.collectionimg}
+                  src={row.organizerimg}
                   alt="Product"
                   id="tableimg"
                   style={{
                     marginRight: "10px",
-                    maxWidth: "50px",
-                    borderRadius: "10px",
+                    Width: "40px",
+                    Height: "40px",
+                    borderRadius: "50%",
                   }}
                 />
                 <div style={{ flexGrow: 1 }}>
@@ -83,28 +85,20 @@ const Toporganizer = () => {
                       textOverflow: "ellipsis",
                     }}
                   >
-                    {row.collection}
+                    {row.organizer}
                   </h5>
                 </div>
               </td>
 
-              <td className="col col-2" data-label="Customer Name">
-                <div className="text-center">
-                  <h5>{row.volume}</h5>
-                </div>
-              </td>
               <td className="col col-3" data-label="Amount">
-                <h5>{row.change}</h5>
-              </td>
-              <td className="col col-3" data-label="Amount">
-                <h5>{row.floor}</h5>
+                <h5>{row.Host}</h5>
               </td>
 
-              <td className="col col-5" data-label="Job Ids">
-                <h5>{row.sale}%</h5>
+              <td className="col col-4" data-label="Job Ids">
+                <h5>{row.pool}</h5>
               </td>
-              <td className="col col-6" data-label="Job Id">
-                <h5>{row.status}</h5>
+              <td className="col col-5" data-label="Job Id">
+                <button id="followbtn">Follow</button>
               </td>
             </tr>
           ))}

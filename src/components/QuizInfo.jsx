@@ -8,19 +8,19 @@ import Quiztheory from "./Quiztheory";
 const cardData = [
   {
     badgeColor: "primary",
-    badgeText: "Bronze",
+    badgeText: "Bronze 10STX",
     range: "60% - 69%",
     items: ["Naccy buu", "sia funky", "Pinat van"],
   },
   {
     badgeColor: "success",
-    badgeText: "Silver",
+    badgeText: "Silver 20STX",
     range: "70% - 79%",
     items: ["Natmas", "Tolujohn", "Huun gss"],
   },
   {
     badgeColor: "warning",
-    badgeText: "Gold",
+    badgeText: "Gold 50STX",
     range: "80% - 100%",
     items: ["Tolujohn", "Faih jon", "Percy mat"],
   },

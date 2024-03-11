@@ -1166,7 +1166,7 @@ h6 {
   position: absolute;
   width: 1px;
   height: 50%;
-  background-color: black;
+  background-color: #213743;
   top: 25%;
   right: 0;
 }
@@ -1209,9 +1209,9 @@ h6 {
 
 .responsive-table {
   width: 100%;
+  border-radius: 5px;
   display: block;
   border-collapse: collapse;
-  background-color: black;
   color: white;
   overflow-x: auto;
 }
@@ -1223,18 +1223,19 @@ h6 {
 }
 
 .responsive-table th {
-  background-color: #333;
+  background-color: transparent;
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
 .responsive-table tbody tr {
-  background-color: black;
+  background-color: #213743;
+  border-radius: 5px !important;
 }
 
 .responsive-table tbody tr:nth-child(even) {
-  background-color: #222;
+  background-color: transparent;
 }
 
 .responsive-table th,
