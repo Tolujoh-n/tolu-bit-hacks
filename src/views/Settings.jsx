@@ -37,7 +37,7 @@ function Settings() {
                         data-toggle="tab"
                         data-target="#game-settings"
                       >
-                        Games
+                        Host
                       </button>
                     </li>
 
@@ -51,7 +51,7 @@ function Settings() {
                         data-toggle="tab"
                         data-target="#game-list"
                       >
-                        Games List
+                        Host List
                       </button>
                     </li>
 
@@ -116,7 +116,7 @@ function Settings() {
                               type="text"
                               className="form-control"
                               id="fullName"
-                              value="Chain XP"
+                              value="Tolu John"
                             />
                           </div>
                         </div>
@@ -135,11 +135,12 @@ function Settings() {
                               id="about"
                               style={{ height: "100px" }}
                             >
-                              Sunt est soluta temporibus accusantium neque nam
-                              maiores cumque temporibus. Tempora libero non est
-                              unde veniam est qui dolor. Ut sunt iure rerum quae
-                              quisquam autem eveniet perspiciatis odit. Fuga
-                              sequi sed ea saepe at unde.
+                              I'm an experienced full-stack blockchain developer
+                              with a focus on frontend development, I'm eager to
+                              join teams, contribute my expertise, and offer my
+                              skills to enhance its success. I'd also love to be
+                              part of teams for hacks and any collaborative
+                              opportunity.
                             </textarea>
                           </div>
                         </div>
@@ -175,7 +176,7 @@ function Settings() {
                               type="text"
                               className="form-control"
                               id="Address"
-                              value="Encode lightlink, xp track"
+                              value="Califonial, USA"
                             />
                           </div>
                         </div>
@@ -211,7 +212,7 @@ function Settings() {
                               type="email"
                               className="form-control"
                               id="Email"
-                              value="chainxp@example.com"
+                              value="tolujohnofficial@gmail.com"
                             />
                           </div>
                         </div>
@@ -310,6 +311,7 @@ function Settings() {
                           <label
                             for="fullName"
                             className="col-md-4 col-lg-3 col-form-label"
+                            style={{ color: "#b1bad3" }}
                           >
                             Email Notifications
                           </label>
@@ -324,8 +326,9 @@ function Settings() {
                               <label
                                 className="form-check-label"
                                 for="changesMade"
+                                style={{ color: "#b1bad3" }}
                               >
-                                New game updates on the platform
+                                New Quiz updates on the platform
                               </label>
                             </div>
                             <div className="form-check">
@@ -338,6 +341,7 @@ function Settings() {
                               <label
                                 className="form-check-label"
                                 for="newProducts"
+                                style={{ color: "#b1bad3" }}
                               >
                                 Information on new platform and services
                               </label>
@@ -351,6 +355,7 @@ function Settings() {
                               <label
                                 className="form-check-label"
                                 for="proOffers"
+                                style={{ color: "#b1bad3" }}
                               >
                                 Marketing and promo offers
                               </label>

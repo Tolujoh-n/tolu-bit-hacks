@@ -60,6 +60,11 @@ const Navbar = () => {
         <ul className="d-flex align-items-center">
           <li class="nav-item">
             <Link class="nav-link nav-icon" to="/settings">
+              Host
+            </Link>
+          </li>
+          <li class="nav-item">
+            <Link class="nav-link nav-icon" to="/settings">
               <i class="bi bi-gear"></i>
             </Link>
           </li>

@@ -1,230 +1,152 @@
-// pages/index.js
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const styles = {
-  container: {
-    color: "white",
-    backgroundColor: "transparent",
-    padding: "20px",
-    fontFamily: "Arial, sans-serif",
+const tableData = [
+  {
+    seria: 1,
+    name: "cole gas",
+    passed: 12,
+    failed: 6,
+    Points: 600,
+    grade: "40%",
   },
-  questContainer: {
-    marginBottom: "20px",
+  {
+    seria: 2,
+    name: "Favour",
+    passed: 15,
+    failed: 10,
+    Points: 400,
+    grade: "30%",
   },
-  label: {
-    display: "block",
-    marginBottom: "5px",
+  {
+    seria: 3,
+    name: "Nasty",
+    passed: 6,
+    failed: 12,
+    Points: 500,
+    grade: "98%",
   },
-  input: {
-    width: "100%",
-    padding: "8px",
-    marginBottom: "10px",
-    borderRadius: "20px",
+  {
+    seria: 4,
+    name: "Kole man",
+    passed: 16,
+    failed: 2,
+    Points: 100,
+    grade: "54%",
   },
-  textarea: {
-    width: "100%",
-    padding: "8px",
-    marginBottom: "10px",
-  },
-  button: {
-    padding: "10px",
-    backgroundColor: "orange",
-    color: "white",
-    cursor: "pointer",
-    border: "none",
-    borderRadius: "5px",
-    marginRight: "10px",
-  },
+];
+
+const Participants = () => {
+  return (
+    <div className="col-lg-12">
+      <h1 className="card-title">PARTICIPANTS</h1>
+      <div style={{ overflowX: "auto" }} className="col-12">
+        <table className="responsive-table">
+          <thead>
+            <tr className="table-header">
+              <th className="col col-1">Seria</th>
+              <th className="col col-2 text-center">Name</th>
+              <th className="col col-3">Passed</th>
+              <th className="col col-3">Failed</th>
+              <th className="col col-5">Points</th>
+              <th className="col col-6">Grade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((row, index) => (
+              <tr key={index} className="table-row">
+                <td className="col col-1" data-label="Customer Name">
+                  <div className="text-center">
+                    <h5>{row.seria}</h5>
+                  </div>
+                </td>
+
+                <td className="col col-2" data-label="Customer Name">
+                  <div className="text-center">
+                    <h5>{row.name}</h5>
+                  </div>
+                </td>
+                <td className="col col-3" data-label="Amount">
+                  <h5>{row.passed}</h5>
+                </td>
+                <td className="col col-3" data-label="Amount">
+                  <h5>{row.failed}</h5>
+                </td>
+
+                <td className="col col-5" data-label="Job Ids">
+                  <h5>{row.Points}</h5>
+                </td>
+                <td className="col col-6" data-label="Job Id">
+                  <h5>{row.grade}</h5>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
-const QuestForm = ({ quests, handleQuestChange, handleAddQuest }) => {
+const QuizList = () => {
+  const [showParticipants, setShowParticipants] = useState([]);
+
+  const handleShowParticipants = (index) => {
+    setShowParticipants((prev) => {
+      const newParticipants = [...prev];
+      newParticipants[index] = !newParticipants[index];
+      return newParticipants;
+    });
+  };
+
+  const quizzes = [
+    "Meta Quest Presence Platform quiz 2024",
+    "IBM Quest Presence Platform quiz 2024",
+  ];
+
   return (
-    <div>
-      {quests.map((quest, index) => (
-        <div key={index} style={styles.questContainer}>
-          <h4>Quest {quest.levelNumber}</h4>
-          <div>
-            <label style={styles.label}>Name:</label>
-            <input
-              type="text"
-              value={quest.name}
-              onChange={(e) => handleQuestChange(index, "name", e.target.value)}
-              style={styles.input}
-            />
+    <div
+      style={{
+        color: "white",
+        backgroundColor: "transparent",
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <h2>Hosted Quizzes</h2>
+      {quizzes.map((quiz, index) => (
+        <div key={index} style={{ marginBottom: "20px" }}>
+          <div className="d-flex justify-content-between align-items-center">
+            {/* First word with icon */}
+            <div>
+              <h4 style={{ color: "#b1bad3" }}>
+                {" "}
+                <i
+                  className="bi bi-arrow-right"
+                  style={{ color: "#b1bad3", marginRight: "10px" }}
+                ></i>
+                {quiz}
+              </h4>
+            </div>
+            {/* Second word */}
+            <div>
+              <button
+                onClick={() => handleShowParticipants(index)}
+                id="followbtn"
+              >
+                Participants
+              </button>
+              <Link to="/quizinfo">
+                <button id="followbtn">Winners</button>
+              </Link>
+            </div>
           </div>
-          <div>
-            <label style={styles.label}>Description:</label>
-            <textarea
-              value={quest.description}
-              onChange={(e) =>
-                handleQuestChange(index, "description", e.target.value)
-              }
-              style={styles.textarea}
-            />
-          </div>
-          <div>
-            <label style={styles.label}>Level Reward:</label>
-            <input
-              type="number"
-              value={quest.levelReward}
-              onChange={(e) =>
-                handleQuestChange(
-                  index,
-                  "levelReward",
-                  parseFloat(e.target.value)
-                )
-              }
-              style={styles.input}
-            />
-          </div>
-          <div>
-            <label style={styles.label}>Timer (seconds):</label>
-            <input
-              type="number"
-              value={quest.timer}
-              onChange={(e) =>
-                handleQuestChange(index, "timer", parseInt(e.target.value))
-              }
-              style={styles.input}
-            />
-          </div>
+
+          {showParticipants[index] && <Participants />}
         </div>
       ))}
-      <button onClick={handleAddQuest} style={styles.button}>
-        Add Quest
-      </button>
     </div>
   );
 };
 
-const QuizListComponent = ({ games, handleEditGame, handleSaveEditedGame }) => {
-  const [editingGame, setEditingGame] = useState(null);
-
-  const handleEdit = (game) => {
-    setEditingGame(game);
-    handleEditGame(game);
-  };
-
-  const handleSave = () => {
-    handleSaveEditedGame(editingGame);
-    setEditingGame(null);
-  };
-
-  return (
-    <div>
-      <h2>Game List</h2>
-      <ul>
-        {games.map((game, index) => (
-          <li key={index}>
-            {game.gameName}{" "}
-            <button onClick={() => handleEdit(game)}>Edit Game</button>
-          </li>
-        ))}
-      </ul>
-      {editingGame && (
-        <div>
-          <h2>Edit Game</h2>
-          <QuestForm
-            quests={editingGame.quests || []}
-            handleQuestChange={(index, field, value) =>
-              handleEditGame({
-                ...editingGame,
-                quests: editingGame.quests.map((quest, i) =>
-                  i === index ? { ...quest, [field]: value } : quest
-                ),
-              })
-            }
-            handleAddQuest={() =>
-              handleEditGame({
-                ...editingGame,
-                quests: [
-                  ...(editingGame.quests || []),
-                  {
-                    name: "",
-                    description: "",
-                    levelReward: 0,
-                    levelNumber: (editingGame.quests || []).length + 1,
-                    timer: 0,
-                  },
-                ],
-              })
-            }
-          />
-          <br />
-          <button onClick={handleSave} style={styles.button}>
-            Save
-          </button>
-        </div>
-      )}
-    </div>
-  );
-};
-
-const Quizlist = () => {
-  const [games, setGames] = useState([
-    {
-      gameName: "Sample Game 1",
-      quests: [
-        {
-          name: "Quest 1",
-          description: "Description 1",
-          levelReward: 10,
-          levelNumber: 1,
-          timer: 30,
-        },
-        {
-          name: "Quest 2",
-          description: "Description 2",
-          levelReward: 20,
-          levelNumber: 2,
-          timer: 45,
-        },
-      ],
-    },
-    {
-      gameName: "Sample Game 2",
-      quests: [
-        {
-          name: "Quest A",
-          description: "Description A",
-          levelReward: 15,
-          levelNumber: 1,
-          timer: 40,
-        },
-        {
-          name: "Quest B",
-          description: "Description B",
-          levelReward: 25,
-          levelNumber: 2,
-          timer: 60,
-        },
-      ],
-    },
-  ]);
-
-  const handleEditGame = (game) => {
-    setGames((prevGames) =>
-      prevGames.map((g) => (g.gameName === game.gameName ? game : g))
-    );
-  };
-
-  const handleSaveEditedGame = (editedGame) => {
-    setGames((prevGames) =>
-      prevGames.map((game) =>
-        game.gameName === editedGame.gameName ? editedGame : game
-      )
-    );
-  };
-
-  return (
-    <div style={styles.container}>
-      <QuizListComponent
-        games={games}
-        handleEditGame={handleEditGame}
-        handleSaveEditedGame={handleSaveEditedGame}
-      />
-    </div>
-  );
-};
-
-export default Quizlist;
+export default QuizList;
