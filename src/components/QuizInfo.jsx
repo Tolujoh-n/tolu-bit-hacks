@@ -3,6 +3,7 @@ import xp from "../assets/img/xp.jpg";
 import useimage from "../assets/address.jpg";
 import Modal from "./Modal";
 import { BsCheckCircle } from "react-icons/bs";
+import Quiztheory from "./Quiztheory";
 
 const cardData = [
   {
@@ -133,6 +134,7 @@ const QuizInfo = () => {
           ))}
         </div>
       </div>
+      <Quiztheory />
       <>
         {/* Render the Gamemodal if isGamemodalOpen is true */}
         {isGamemodalOpen && (

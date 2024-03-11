@@ -1130,6 +1130,138 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+#  leaderboard 
+--------------------------------------------------------------*/
+/* .leaderboard {
+  background: url("../img/Green-bg.png") top left;
+  background-size: cover;
+  position: relative;
+} */
+
+.leaderboard .nav-tabs {
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+
+.leaderboard .nav-link {
+  color: whitesmoke;
+  background: transparent;
+  border: none;
+  font-size: larger;
+  font-weight: 600;
+}
+
+.leaderboard .nav-tabs-bordered .nav-item {
+  flex: 1;
+  display: flex;
+}
+
+.leaderboard .nav-tabs-bordered .nav-item button {
+  flex: 1;
+  position: relative;
+}
+
+.leaderboard .nav-tabs-bordered .nav-item button:before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 50%;
+  background-color: black;
+  top: 25%;
+  right: 0;
+}
+
+.leaderboard .nav-tabs-bordered .nav-item:first-child button:before {
+  display: none;
+}
+
+.leaderboard .active {
+  background: #557086 !important;
+  color: white;
+}
+
+#tableimg {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+}
+.coin-table-image {
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.straight {
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Alerts */
+.alert-heading {
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+
+.responsive-table {
+  width: 100%;
+  display: block;
+  border-collapse: collapse;
+  background-color: black;
+  color: white;
+  overflow-x: auto;
+}
+
+.responsive-table th,
+.responsive-table td {
+  padding: 5px;
+  text-align: left;
+}
+
+.responsive-table th {
+  background-color: #333;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.responsive-table tbody tr {
+  background-color: black;
+}
+
+.responsive-table tbody tr:nth-child(even) {
+  background-color: #222;
+}
+
+.responsive-table th,
+.responsive-table td {
+  border-bottom: 1px solid #444;
+}
+
+.responsive-table th:first-child,
+.responsive-table td:first-child {
+  border-left: none;
+}
+
+.responsive-table th:last-child,
+.responsive-table td:last-child {
+  border-right: none;
+}
+@media only screen and (max-width: 768px) {
+  .responsive-table {
+    overflow: scroll;
+  }
+  .responsive-table th,
+  .responsive-table td {
+    min-width: auto;
+  }
+}
+
+/*--------------------------------------------------------------
 # F.A.Q Page
 --------------------------------------------------------------*/
 .faq .basic h6 {

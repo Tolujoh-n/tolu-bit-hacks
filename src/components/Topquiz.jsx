@@ -41,10 +41,10 @@ const Topquiz = () => {
     <>
       <div className="col-lg-12">
         <div className="row">
-          {/* Games */}
+          {/* Quiz */}
 
           <div className="col-lg-12">
-            <h5 className="card-title">Quiz List</h5>
+            <h5 className="card-title">Fixed Quiz</h5>
 
             <div className="row">
               {cardData.map((card) => (
@@ -89,7 +89,7 @@ const Topquiz = () => {
                               {/* First word with icon */}
                               <div>
                                 <span style={{ color: "#b1bad3" }}>
-                                  3000 STX in prizes
+                                  POOL: 3000 STX
                                 </span>
                               </div>
                               {/* Second word */}
