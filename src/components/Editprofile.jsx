@@ -7,13 +7,18 @@ const Editprofile = () => {
       <form>
         <div className="row mb-3">
           <label
+            style={{ color: "#b1bad3" }}
             for="profileImage"
             className="col-md-4 col-lg-3 col-form-label"
           >
             Profile Image
           </label>
           <div className="col-md-8 col-lg-9">
-            <img src={profile} alt="Profile" />
+            <img
+              style={{ height: "100px", width: "100px" }}
+              src={profile}
+              alt="Profile"
+            />
             <div className="pt-2">
               <a
                 href="#"
@@ -34,7 +39,11 @@ const Editprofile = () => {
         </div>
 
         <div className="row mb-3">
-          <label for="fullName" className="col-md-4 col-lg-3 col-form-label">
+          <label
+            style={{ color: "#b1bad3" }}
+            for="fullName"
+            className="col-md-4 col-lg-3 col-form-label"
+          >
             Full Name
           </label>
           <div className="col-md-8 col-lg-9">
@@ -49,7 +58,11 @@ const Editprofile = () => {
         </div>
 
         <div className="row mb-3">
-          <label for="about" className="col-md-4 col-lg-3 col-form-label">
+          <label
+            style={{ color: "#b1bad3" }}
+            for="about"
+            className="col-md-4 col-lg-3 col-form-label"
+          >
             Bio
           </label>
           <div className="col-md-8 col-lg-9">
@@ -69,52 +82,11 @@ const Editprofile = () => {
         </div>
 
         <div className="row mb-3">
-          <label for="Country" className="col-md-4 col-lg-3 col-form-label">
-            Country
-          </label>
-          <div className="col-md-8 col-lg-9">
-            <input
-              name="country"
-              type="text"
-              className="form-control"
-              id="Country"
-              value="USA"
-            />
-          </div>
-        </div>
-
-        <div className="row mb-3">
-          <label for="Address" className="col-md-4 col-lg-3 col-form-label">
-            Address
-          </label>
-          <div className="col-md-8 col-lg-9">
-            <input
-              name="address"
-              type="text"
-              className="form-control"
-              id="Address"
-              value="Califonial, USA"
-            />
-          </div>
-        </div>
-
-        <div className="row mb-3">
-          <label for="Phone" className="col-md-4 col-lg-3 col-form-label">
-            Phone
-          </label>
-          <div className="col-md-8 col-lg-9">
-            <input
-              name="phone"
-              type="text"
-              className="form-control"
-              id="Phone"
-              value="(436) 234-4542 08474"
-            />
-          </div>
-        </div>
-
-        <div className="row mb-3">
-          <label for="Email" className="col-md-4 col-lg-3 col-form-label">
+          <label
+            style={{ color: "#b1bad3" }}
+            for="Email"
+            className="col-md-4 col-lg-3 col-form-label"
+          >
             Email
           </label>
           <div className="col-md-8 col-lg-9">
@@ -129,7 +101,11 @@ const Editprofile = () => {
         </div>
 
         <div className="row mb-3">
-          <label for="Twitter" className="col-md-4 col-lg-3 col-form-label">
+          <label
+            style={{ color: "#b1bad3" }}
+            for="Twitter"
+            className="col-md-4 col-lg-3 col-form-label"
+          >
             Twitter Profile
           </label>
           <div className="col-md-8 col-lg-9">
@@ -144,7 +120,11 @@ const Editprofile = () => {
         </div>
 
         <div className="row mb-3">
-          <label for="Facebook" className="col-md-4 col-lg-3 col-form-label">
+          <label
+            style={{ color: "#b1bad3" }}
+            for="Facebook"
+            className="col-md-4 col-lg-3 col-form-label"
+          >
             Facebook Profile
           </label>
           <div className="col-md-8 col-lg-9">
@@ -159,7 +139,11 @@ const Editprofile = () => {
         </div>
 
         <div className="row mb-3">
-          <label for="Instagram" className="col-md-4 col-lg-3 col-form-label">
+          <label
+            style={{ color: "#b1bad3" }}
+            for="Instagram"
+            className="col-md-4 col-lg-3 col-form-label"
+          >
             Instagram Profile
           </label>
           <div className="col-md-8 col-lg-9">
@@ -174,7 +158,11 @@ const Editprofile = () => {
         </div>
 
         <div className="row mb-3">
-          <label for="Linkedin" className="col-md-4 col-lg-3 col-form-label">
+          <label
+            style={{ color: "#b1bad3" }}
+            for="Linkedin"
+            className="col-md-4 col-lg-3 col-form-label"
+          >
             Linkedin Profile
           </label>
           <div className="col-md-8 col-lg-9">

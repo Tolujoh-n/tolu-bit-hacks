@@ -1,9 +1,9 @@
 import React from "react";
-import profile from "../assets/address.jpg";
 import AddQuestForm from "../components/AddQuizForm";
 import Quizlist from "../components/organizer/Quizlist";
 import Editprofile from "../components/Editprofile";
 import Subscribe from "../components/Subscribe";
+import Profile from "../components/Profile";
 
 function Settings() {
   return (
@@ -24,6 +24,20 @@ function Settings() {
                         }}
                         data-toggle="tab"
                         data-target="#profile-edit"
+                      >
+                        Profile
+                      </button>
+                    </li>
+
+                    <li className="nav-item">
+                      <button
+                        className="nav-link"
+                        style={{
+                          color: "whitesmoke",
+                          background: "transparent",
+                        }}
+                        data-toggle="tab"
+                        data-target="#game-set"
                       >
                         Edit Profile
                       </button>
@@ -76,6 +90,9 @@ function Settings() {
                       className="tab-pane fade show active profile-edit"
                       id="profile-edit"
                     >
+                      <Profile />
+                    </div>
+                    <div className="tab-pane fade pt-3" id="game-set">
                       <Editprofile />
                     </div>
 
