@@ -86,7 +86,7 @@ const QuizForm = ({ totalLevels }) => {
             <div className="col-md-12">
               <div className="form-group">
                 <label style={styles.label}>Question:</label>
-                <textarea
+                <input
                   type="text"
                   className="form-control"
                   id="productName"
@@ -103,7 +103,7 @@ const QuizForm = ({ totalLevels }) => {
             <div className="col-md-6">
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   id="productQuantity"
                   placeholder="Option 1"
@@ -115,7 +115,7 @@ const QuizForm = ({ totalLevels }) => {
             <div className="col-md-6">
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   id="productQuantity"
                   placeholder="Option 2"
@@ -127,7 +127,7 @@ const QuizForm = ({ totalLevels }) => {
             <div className="col-md-6">
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   id="productQuantity"
                   placeholder="Option 3"
@@ -139,7 +139,7 @@ const QuizForm = ({ totalLevels }) => {
             <div className="col-md-6">
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   className="form-control"
                   id="productQuantity"
                   placeholder="Option 4"
@@ -151,42 +151,30 @@ const QuizForm = ({ totalLevels }) => {
           </div>
         </div>
       ))}
-
-      <div className="d-flex justify-content-between align-items-center">
-        {/* First word with icon */}
-        <div>
-          <button onClick={handleAddQuest} id="followbtn">
-            Add Question
-          </button>
-          <button onClick={handleSubmit} id="followbtn">
-            AI Wrong Options
-          </button>
-        </div>
-        {/* Second word */}
-        <div>
-          <button onClick={handleSubmit} id="followbtn">
-            Submit Quiz
-          </button>
-        </div>
-      </div>
+      <button onClick={handleAddQuest} id="followbtn">
+        Add Question
+      </button>
+      <button onClick={handleSubmit} id="followbtn">
+        Submit Quiz
+      </button>
     </div>
   );
 };
 
 const AddQuizForm = () => {
-  const [gameInfo, setGameInfo] = useState({
-    gameImage: "",
-    gameName: "",
+  const [quizInfo, setquizInfo] = useState({
+    quizImage: "",
+    quizName: "",
     totalLevels: 0,
     rewards: [
       { label: "60% - 69%", value: 0 },
       { label: "70% - 79%", value: 0 },
-      { label: "80% - 100%", value: 0 },
+      { label: "80% - 90%", value: 0 },
     ],
   });
 
   const handleRewardChange = (index, value) => {
-    setGameInfo((prevState) => {
+    setquizInfo((prevState) => {
       const rewards = [...prevState.rewards];
       rewards[index].value = value;
       return { ...prevState, rewards };
@@ -205,9 +193,9 @@ const AddQuizForm = () => {
               className="form-control"
               id="productName"
               placeholder="Enter Quiz Title"
-              value={gameInfo.gameName}
+              value={quizInfo.quizName}
               onChange={(e) =>
-                setGameInfo({ ...gameInfo, gameName: e.target.value })
+                setquizInfo({ ...quizInfo, quizName: e.target.value })
               }
               style={styles.input}
               required
@@ -220,13 +208,6 @@ const AddQuizForm = () => {
               className="form-control"
               id="productPrice"
               placeholder="Price Pool (STX)"
-              value={gameInfo.totalLevels}
-              onChange={(e) =>
-                setGameInfo({
-                  ...gameInfo,
-                  totalLevels: parseInt(e.target.value),
-                })
-              }
               style={styles.input}
               required
             />
@@ -241,7 +222,7 @@ const AddQuizForm = () => {
               id="productimgs"
               accept="image/*"
               onChange={(e) =>
-                setGameInfo({ ...gameInfo, gameImage: e.target.value })
+                setquizInfo({ ...quizInfo, quizImage: e.target.value })
               }
               style={styles.input}
               required
@@ -264,7 +245,7 @@ const AddQuizForm = () => {
             <label htmlFor="rewards">Winners Rewards</label>
             <table style={styles.table}>
               <tbody>
-                {gameInfo.rewards.map((reward, index) => (
+                {quizInfo.rewards.map((reward, index) => (
                   <tr key={index} style={styles.tableRow}>
                     <td>{reward.label}</td>
                     <td>
@@ -295,8 +276,8 @@ const AddQuizForm = () => {
         </div>
       </div>
 
-      {gameInfo.totalLevels > 0 && (
-        <QuizForm totalLevels={gameInfo.totalLevels} />
+      {quizInfo.totalLevels > 0 && (
+        <QuizForm totalLevels={quizInfo.totalLevels} />
       )}
     </div>
   );

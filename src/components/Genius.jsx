@@ -154,12 +154,7 @@ const Genius = () => {
                           </div>
                           {/* Second word */}
                           <div>
-                            <button
-                              onClick={handleGamemodalClick}
-                              id="followbtn"
-                            >
-                              Follow
-                            </button>
+                            <button id="followbtn">Follow</button>
                           </div>
                         </div>
                       </p>
@@ -217,12 +212,7 @@ const Genius = () => {
                           </div>
                           {/* Second word */}
                           <div>
-                            <button
-                              onClick={handleGamemodalClick}
-                              id="followbtn"
-                            >
-                              Follow
-                            </button>
+                            <button id="followbtn">Follow</button>
                           </div>
                         </div>
                       </p>
