@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/address.jpg";
+import Connect from "../components/walletconnect/Connect";
 
 // import logo from "../assets/img/logo.png";
 
@@ -37,7 +38,7 @@ const Navbar = () => {
           action="#"
         >
           <input
-            style={{ padding: "10px", borderRadius: "20px" }}
+            style={{ padding: "10px", borderRadius: "20px", color: "#2f4553" }}
             type="text"
             name="query"
             placeholder="Search"
@@ -57,46 +58,7 @@ const Navbar = () => {
         </form>
       </div>
       <nav className="header-nav ms-auto">
-        <ul className="d-flex align-items-center">
-          <li class="nav-item">
-            <Link class="nav-link nav-icon" to="/settings">
-              Host
-            </Link>
-          </li>
-          <li class="nav-item">
-            <Link class="nav-link nav-icon" to="/settings">
-              <i class="bi bi-gear"></i>
-            </Link>
-          </li>
-
-          {!WalletConnected ? (
-            <>
-              <li className="nav-item pe-3">
-                <Link
-                  className="nav-link nav-profile d-flex align-items-center pe-0"
-                  to="/profile"
-                  data-bs-toggle="dropdown"
-                >
-                  <img src={logo} alt="Profile" className="rounded-circle" />
-                  <span className="d-none d-md-block ps-2">oxwk...wdj</span>
-                </Link>
-              </li>
-              <li className="nav-item pe-3">
-                <a href="/">
-                  <button type="button" className="btn btn-danger">
-                    Disconnect
-                  </button>
-                </a>
-              </li>
-            </>
-          ) : (
-            <li className="nav-item pe-3">
-              <button type="button" className="btn btn-primary">
-                Connect Wallet
-              </button>
-            </li>
-          )}
-        </ul>
+        <Connect />
       </nav>
 
       {/* End Icons Navigation */}

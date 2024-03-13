@@ -1,33 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/address.jpg";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const quizcategory = [
-  { id: 1, name: "Home", icon: "bi-book" },
-  { id: 2, name: "Science", icon: "bi-book" },
-  { id: 3, name: "Art", icon: "bi-book" },
-  { id: 4, name: "Commerce", icon: "bi-book" },
-  { id: 5, name: "Blockchain", icon: "bi-book" },
-  { id: 6, name: "History", icon: "bi-book" },
-  { id: 7, name: "Sport", icon: "bi-book" },
-];
+const Quizcategory = ({ activeLink, setActive }) => {
+  const quizcategory = [
+    { id: 1, name: "Home", icon: "bi-house" },
+    { id: 2, name: "Science", icon: "bi-binoculars" },
+    { id: 3, name: "Art", icon: "bi-palette" },
+    { id: 4, name: "Commerce", icon: "bi-cash" },
+    { id: 5, name: "Blockchain", icon: "bi-boxes" },
+    { id: 6, name: "History", icon: "bi-book" },
+    { id: 7, name: "Sport", icon: "bi-dribbble" },
+  ];
 
-const userlist = [
-  { id: 1, name: "Wallet", icon: "bi-book" },
-  { id: 2, name: "Notification", icon: "bi-book" },
-  { id: 3, name: "Leatherboard", icon: "bi-book" },
-  { id: 4, name: "Profile", icon: "bi-book" },
-];
+  const userlist = [
+    { id: 1, name: "Wallet", icon: "bi-wallet" },
+    { id: 2, name: "Notification", icon: "bi-bell" },
+    { id: 3, name: "Leaderboard", icon: "bi-award" },
+    { id: 4, name: "Profile", icon: "bi-person" },
+  ];
 
-const Quizcategory = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    setActive(location.pathname);
+  }, [location.pathname, setActive]);
+
+  const isActive = (path) => {
+    return activeLink === path;
+  };
+
   return (
     <aside id="sidebar" className={`sidebar ${"ml-[300px]"}`}>
-      {/* <li className="nav-heading">Game</li> */}
       <ul className="sidebar-nav" id="sidebar-nav">
         {quizcategory.map((quiz) => (
           <li key={quiz.id} className="nav-item">
-            <Link className="nav-link gap-1 collapsed" to="/topquiz">
-              <i className="bi-book"></i>
+            <Link
+              className={`nav-link gap-1 collapsed ${
+                isActive(`/${quiz.name.toLowerCase()}`) ? "active" : ""
+              }`}
+              to={`/${quiz.name.toLowerCase()}`}
+            >
+              <i className={`bi ${quiz.icon}`}></i>
               <span>{quiz.name}</span>
             </Link>
           </li>
@@ -37,8 +50,14 @@ const Quizcategory = () => {
       <ul className="sidebar-nav" id="sidebar-nav">
         {userlist.map((user) => (
           <li key={user.id} className="nav-item">
-            <Link className="nav-link gap-1 collapsed" to="/topquiz">
-              <i className="bi-person"></i>
+            <Link
+              className={`nav-link scrollto ${
+                isActive(`/${user.name.toLowerCase()}`) ? "active" : ""
+              }`}
+              onClick={() => setActive(`/${user.name.toLowerCase()}`)}
+              to={`/${user.name.toLowerCase()}`}
+            >
+              <i className={`bi ${user.icon}`}></i>
               <span>{user.name}</span>
             </Link>
           </li>
