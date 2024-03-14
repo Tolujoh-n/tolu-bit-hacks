@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/address.jpg";
+import logo from "../assets/geniuslob.png";
 import Connect from "../components/walletconnect/Connect";
 
 // import logo from "../assets/img/logo.png";
@@ -24,8 +24,13 @@ const Navbar = () => {
         lg:hidden"
         ></i>
         <Link to="/" className="logo d-flex align-items-center">
-          <img src={logo} alt="" className="h-[70px] w-[70px] object-cover" />
-          <span className="d-none d-lg-block">Geniusmind</span>
+          <img
+            style={{ borderRadius: "5px" }}
+            src={logo}
+            alt=""
+            className="h-[70px] w-[70px] object-cover"
+          />
+          <span className="d-none d-lg-block">eniusmind</span>
         </Link>
       </div>
       {/* End Logo */}

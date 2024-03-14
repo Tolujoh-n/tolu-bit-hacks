@@ -6,11 +6,11 @@ import useimage from "../assets/address.jpg";
 import Modal from "./Modal";
 
 const Ongoinggm = [
-  { id: 1, title: "ongoing que", reward: "30", level: "1" },
-  { id: 2, title: "ongoing que", reward: "15", level: "6" },
-  { id: 3, title: "ongoing que", reward: "10", level: "3" },
-  { id: 4, title: "ongoing que", reward: "25", level: "5" },
-  { id: 5, title: "ongoing que", reward: "20", level: "2" },
+  { id: 1, title: "Tolujohn Bob", reward: "30", level: "1" },
+  { id: 2, title: "Fabrre don", reward: "15", level: "6" },
+  { id: 3, title: "Naccy colen", reward: "10", level: "3" },
+  { id: 4, title: "Petter collin", reward: "25", level: "5" },
+  { id: 5, title: "Rugberbs", reward: "20", level: "2" },
 ];
 
 const Sidebar = () => {

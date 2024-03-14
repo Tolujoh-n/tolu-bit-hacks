@@ -19,12 +19,12 @@ const Topquiz = [
 ];
 
 const cardData = [
-  { name: "sone tvdx sfgff", reward: "10", level: "1", id: 1 },
-  { name: "husus autemfe effe", reward: "15", level: "2", id: 2 },
-  { name: "Idan usbw ffefef", reward: "20", level: "3", id: 3 },
-  { name: "besos corn", reward: "25", level: "4", id: 4 },
-  { name: "nacy colen fdsi udf dfdf", reward: "30", level: "5", id: 5 },
-  { name: "nacy colenhf", reward: "40", level: "6", id: 6 },
+  { name: "Jane col", reward: "10", level: "1", id: 1 },
+  { name: "Tolujohn Bob", reward: "15", level: "2", id: 2 },
+  { name: "Fabrre don", reward: "20", level: "3", id: 3 },
+  { name: "Rugberbs", reward: "25", level: "4", id: 4 },
+  { name: "Naccy colen", reward: "30", level: "5", id: 5 },
+  { name: "Petter collins", reward: "40", level: "6", id: 6 },
 ];
 
 const Genius = () => {

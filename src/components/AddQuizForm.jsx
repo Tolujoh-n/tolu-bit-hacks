@@ -167,20 +167,22 @@ const QuizForm = ({ totalLevels }) => {
             onClick={() =>
               generateWrongOptions(index, quest.description, quest.options[0])
             }
-            style={styles.button}
+            id="followbtn"
           >
             AI Wrong Options
           </button>
         </div>
       ))}
       <div className="d-flex justify-content-between align-items-center">
+        {/* First word with icon */}
         <div>
-          <button onClick={handleAddQuest} style={styles.button}>
+          <button onClick={handleAddQuest} id="followbtn">
             Add Question
           </button>
         </div>
+        {/* Second word */}
         <div>
-          <button onClick={handleSubmit} style={styles.button}>
+          <button onClick={handleSubmit} id="followbtn">
             Submit Quiz
           </button>
         </div>
