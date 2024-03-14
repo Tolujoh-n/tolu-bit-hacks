@@ -9,7 +9,7 @@ export const userSession = new UserSession({ appConfig });
 
 export const appDetails = {
   name: "Geniusmind",
-  icon: "https://charisma.rocks/charisma.png",
+  icon: "https://ibb.co/CK3qd2M",
 };
 
 function authenticate() {

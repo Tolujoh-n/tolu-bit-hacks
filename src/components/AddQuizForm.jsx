@@ -1,5 +1,6 @@
-// pages/index.js
 import React, { useState } from "react";
+import axios from "axios";
+import OpenAI from "openai";
 
 const styles = {
   container: {
@@ -61,6 +62,7 @@ const QuizForm = ({ totalLevels }) => {
         levelReward: 0,
         levelNumber: prevQuests.length + 1,
         timer: 0,
+        options: Array(4).fill(""), // Initializing options array
       },
     ]);
   };
@@ -71,6 +73,44 @@ const QuizForm = ({ totalLevels }) => {
         i === index ? { ...quest, [field]: value } : quest
       )
     );
+  };
+
+  const generateWrongOptions = async (index, question, correctOption) => {
+    try {
+      const response = await axios.post(
+        "https://api.openai.com/v1/chat/completions",
+        {
+          prompt: `I'm a quiz organizer and i want you to help me generate 3 incorrect option to this question: ${question}\nMy correct option is : ${correctOption}\ntype out the only 3 incorrect options. please don't type any paragraph before your option list. just give me only the 3 incorrect options:`,
+          model: "gpt-3.5-turbo",
+          max_tokens: 4096,
+          temperature: 0.5,
+          n: 3, // Number of incorrect options
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer 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 ",
+          },
+        }
+      );
+      const incorrectOptions = response.data.choices.map((choice) =>
+        choice.text.trim()
+      );
+      setQuests((prevQuests) =>
+        prevQuests.map((quest, i) =>
+          i === index ? { ...quest, options: incorrectOptions } : quest
+        )
+      );
+    } catch (error) {
+      if (error.response && error.response.status === 429) {
+        console.log("Rate limit exceeded. Please try again later.");
+        console.log("Response data:", error.response.data);
+      } else {
+        console.error("Error generating incorrect options:", error);
+        console.log("Response data:", error.response.data);
+      }
+    }
   };
 
   const handleSubmit = () => {
@@ -89,7 +129,6 @@ const QuizForm = ({ totalLevels }) => {
                 <textarea
                   type="text"
                   className="form-control"
-                  id="productName"
                   placeholder="Type your Questions"
                   value={quest.description}
                   onChange={(e) =>
@@ -100,71 +139,48 @@ const QuizForm = ({ totalLevels }) => {
                 />
               </div>
             </div>
-            <div className="col-md-6">
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="productQuantity"
-                  placeholder="Option 1"
-                  style={styles.input}
-                  required
-                />
+            {quest.options.map((option, optionIndex) => (
+              <div className="col-md-6" key={optionIndex}>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder={`Option ${optionIndex + 1}`}
+                    value={option}
+                    onChange={(e) =>
+                      handleQuestChange(
+                        index,
+                        "options",
+                        quest.options.map((opt, idx) =>
+                          idx === optionIndex ? e.target.value : opt
+                        )
+                      )
+                    }
+                    style={styles.input}
+                    required
+                  />
+                </div>
               </div>
-            </div>
-            <div className="col-md-6">
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="productQuantity"
-                  placeholder="Option 2"
-                  style={styles.input}
-                  required
-                />
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="productQuantity"
-                  placeholder="Option 3"
-                  style={styles.input}
-                  required
-                />
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="productQuantity"
-                  placeholder="Option 4"
-                  style={styles.input}
-                  required
-                />
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
-      ))}
-
-      <div className="d-flex justify-content-between align-items-center">
-        {/* First word with icon */}
-        <div>
-          <button onClick={handleAddQuest} id="followbtn">
-            Add Question
-          </button>
-          <button onClick={handleSubmit} id="followbtn">
+          <button
+            onClick={() =>
+              generateWrongOptions(index, quest.description, quest.options[0])
+            }
+            style={styles.button}
+          >
             AI Wrong Options
           </button>
         </div>
-        {/* Second word */}
+      ))}
+      <div className="d-flex justify-content-between align-items-center">
         <div>
-          <button onClick={handleSubmit} id="followbtn">
+          <button onClick={handleAddQuest} style={styles.button}>
+            Add Question
+          </button>
+        </div>
+        <div>
+          <button onClick={handleSubmit} style={styles.button}>
             Submit Quiz
           </button>
         </div>
@@ -203,7 +219,6 @@ const AddQuizForm = () => {
             <input
               type="text"
               className="form-control"
-              id="productName"
               placeholder="Enter Quiz Title"
               value={gameInfo.gameName}
               onChange={(e) =>
@@ -218,7 +233,6 @@ const AddQuizForm = () => {
             <input
               type="number"
               className="form-control"
-              id="productPrice"
               placeholder="Price Pool (STX)"
               value={gameInfo.totalLevels}
               onChange={(e) =>
@@ -238,7 +252,6 @@ const AddQuizForm = () => {
             <input
               type="file"
               className="form-control"
-              id="productimgs"
               accept="image/*"
               onChange={(e) =>
                 setGameInfo({ ...gameInfo, gameImage: e.target.value })
@@ -252,7 +265,6 @@ const AddQuizForm = () => {
             <input
               type="number"
               className="form-control"
-              id="productQuantity"
               placeholder="Participants Entrance Fee"
               required
             />
