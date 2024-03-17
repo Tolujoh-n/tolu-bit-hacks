@@ -145,9 +145,9 @@ const Modal = ({ onClose }) => {
   return (
     <div className="modal" style={modalStyle}>
       <div className="modal-content" style={modalContentStyle}>
-        <span style={{ cursor: "pointer" }} className="close" onClick={onClose}>
+        {/* <span style={{ cursor: "pointer" }} className="close" onClick={onClose}>
           &times;
-        </span>
+        </span> */}
 
         {showMessage ? (
           <>
@@ -232,12 +232,11 @@ const Modal = ({ onClose }) => {
                           <div className="col-md-6">
                             <button
                               onClick={() => handleOptionSelect(option)}
-                              className={`btn-block ${
+                              className={`btn btn-block ${
                                 answers[currentQuestion] === option
-                                  ? "active"
-                                  : ""
+                                  ? "btn-success"
+                                  : "btn-secondary"
                               }`}
-                              id="optionbut"
                             >
                               {option}
                             </button>
@@ -251,15 +250,14 @@ const Modal = ({ onClose }) => {
                                   ]
                                 )
                               }
-                              className={`btn-block ${
+                              className={`btn btn-block ${
                                 answers[currentQuestion] ===
                                 quizQuestions[currentQuestion - 1].options[
                                   index + 1
                                 ]
-                                  ? "active"
-                                  : ""
+                                  ? "btn-success"
+                                  : "btn-secondary"
                               }`}
-                              id="optionbut"
                             >
                               {
                                 quizQuestions[currentQuestion - 1].options[
