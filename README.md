@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+## Inspiration
+Our project, Geniusmind, was inspired by the desire to revolutionize learning and engagement through incentivized quiz competitions. We wanted to create a platform where individuals could showcase their knowledge, earn cryptocurrency rewards, and foster cognitive development.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What it does
+Geniusmind offers a diverse range of quiz categories, including fixed and live quizzes, public and private games, and single or multi-select question formats. Organizers can easily set up quizzes with customizable entrance fees, reward pools, and winning margins. Participants compete for cryptocurrency rewards while engaging in brain-testing activities and fostering community engagement.
 
-## Available Scripts
+## How we built it
+We built Geniusmind using cutting-edge blockchain technology, smart contracts, and AI-driven algorithms. Our team collaborated closely to develop a user-friendly platform with seamless quiz organization, transparent reward distribution, and robust security measures against manipulation.
 
-In the project directory, you can run:
+## Challenges we ran into
+One of the main challenges we encountered was integrating AI algorithms to generate incorrect options for quiz questions. Ensuring the accuracy and relevance of these options required extensive testing and refinement.
 
-### `npm start`
+## Accomplishments that we're proud of
+We're proud to have created a platform that empowers users to earn rewards while expanding their knowledge and cognitive skills. Achieving over 200 organizers and 40,000 participants in just one year, along with securing over $500k in funding, demonstrates the success and potential of our project.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## What we learned
+Throughout this journey, we've learned the importance of community engagement, transparency, and continuous innovation. Listening to user feedback, adapting to market trends, and collaborating with strategic partners have been key factors in our project's growth and success.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## What's next for Geniusmind
+Moving forward, we plan to enhance the platform with new features, such as personalized learning experiences, real-time feedback, and performance tracking. We'll continue to expand our user base, forge strategic partnerships, and explore opportunities for global expansion to solidify Geniusmind's position as the leading incentivized learning platform in the market.
 
-### `npm test`
+##Stacks Wallet:
+SP5HMBACVCBHDE0H96M11NCG6TKF7WVWSRRHK6WB
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_Pitch Video_ :
 
-### `npm run build`
+_Demo Video_ :
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
