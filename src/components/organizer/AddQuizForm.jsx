@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import QuizForm from "./organizer/QuizForm";
+import QuizForm from "./QuizForm";
 
 const styles = {
   container: {
@@ -56,8 +56,8 @@ const AddQuizForm = () => {
     quizName: "",
     quizDescription: "", // Updated state
     pricepool: 0,
-    entrancefee: 0,
-    Timer: 0,
+    entranceFee: 0, // Corrected key name
+    timer: 0, // Corrected key name
     rewards: [
       { label: "60% - 69%", value: 0 },
       { label: "70% - 79%", value: 0 },
@@ -89,8 +89,9 @@ const AddQuizForm = () => {
   };
 
   const handleSubmit = (quizData) => {
-    // You can send quizData to the database here
     console.log("Quiz Data Submitted:", quizData);
+    console.log("Quiz Information Submitted:", gameInfo);
+    // You can send quizData to the database here
   };
 
   return (
@@ -105,9 +106,7 @@ const AddQuizForm = () => {
               className="form-control"
               placeholder="Enter Quiz Title"
               value={gameInfo.quizName}
-              onChange={(e) =>
-                setGameInfo({ ...gameInfo, quizName: e.target.value })
-              }
+              onChange={handleQuizTitleChange}
               style={styles.input}
               required
             />
@@ -160,15 +159,29 @@ const AddQuizForm = () => {
               type="number"
               className="form-control"
               placeholder="Participants Entrance Fee"
+              value={gameInfo.entranceFee} // Corrected key name
+              onChange={(e) =>
+                setGameInfo({
+                  ...gameInfo,
+                  entranceFee: parseInt(e.target.value), // Corrected key name
+                })
+              }
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="productQuantity">Timer(mintes):</label>
+            <label htmlFor="productQuantity">Timer(minutes):</label>
             <input
               type="number"
               className="form-control"
-              placeholder="Set minute for quiz"
+              placeholder="Set minutes for quiz"
+              value={gameInfo.timer} // Corrected key name
+              onChange={(e) =>
+                setGameInfo({
+                  ...gameInfo,
+                  timer: parseInt(e.target.value), // Corrected key name
+                })
+              }
               required
             />
           </div>
@@ -218,7 +231,15 @@ const AddQuizForm = () => {
 
       {/* Render the QuizForm component */}
       {gameInfo.pricepool > 0 && (
-        <QuizForm pricepool={gameInfo.pricepool} onSubmit={handleSubmit} />
+        <QuizForm
+          pricepool={gameInfo.pricepool}
+          entranceFee={gameInfo.entranceFee}
+          timer={gameInfo.timer}
+          onSubmit={handleSubmit}
+          quizTitle={gameInfo.quizName}
+          quizDescription={gameInfo.quizDescription}
+          rewards={gameInfo.rewards}
+        />
       )}
     </div>
   );

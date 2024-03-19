@@ -8,7 +8,6 @@
 ;; (define-constant err-out-not-found (err u104))
 ;; (define-constant err-in-not-found (err u105))
 ;; (define-constant err-tx-not-mined (err u106))
-
 (define-data-var game-state (game (map game-id (tuple (quiz (list (tuple (question text) (options (list text)) (correct-answer int))) (entrance-fee uint))))))
 
 (define-public (create-quiz (quiz-id int) (quiz-questions (list (tuple (question text) (options (list text)) (correct-answer int)))) (entrance-fee uint))
@@ -23,11 +22,27 @@
   (let ((organizer (get-quiz-organizer quiz-id))
         (quiz (get-quiz quiz-id)))
     (if (none? organizer)
-      (ok false)  // Organizer not found
+      (ok false)  ; Organizer not found
       (let ((participant (to-principal tx-sender)))
         (if (verify-entrance-fee quiz-id)
           (begin
+            ; Update quiz results
             (map-set game-state.game organizer (update-quiz-results quiz answers))
+            ; Start the quiz by setting the start time or any other necessary logic
+            (ok true))
+          (ok false))))))
+
+(define-public (join-and-start-quiz (quiz-id int) (answers (list int)))
+  (let ((organizer (get-quiz-organizer quiz-id))
+        (quiz (get-quiz quiz-id)))
+    (if (none? organizer)
+      (ok false)  ; Organizer not found
+      (let ((participant (to-principal tx-sender)))
+        (if (verify-entrance-fee quiz-id)
+          (begin
+            ; Update quiz results
+            (map-set game-state.game organizer (update-quiz-results quiz answers))
+            ; Start the quiz by setting the start time or any other necessary logic
             (ok true))
           (ok false))))))
 

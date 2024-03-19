@@ -50,9 +50,11 @@ const styles = {
 };
 
 const QuizForm = ({
-  pricepool,
   onSubmit,
   quizTitle,
+  pricepool,
+  entranceFee,
+  timer,
   quizDescription,
   rewards,
 }) => {
@@ -65,9 +67,11 @@ const QuizForm = ({
         question: "",
         options: Array(4).fill(""),
         correctOption: null,
+        correctAnswer: "", // Include correctAnswer field
       },
     ]);
   };
+
   const handleQuestChange = (index, field, value) => {
     setQuiz((prevQuiz) =>
       prevQuiz.map((quest, i) =>
@@ -141,9 +145,24 @@ const QuizForm = ({
       }
     }
   };
+
   const handleSubmit = () => {
-    console.log("Quiz Submitted:", { pricepool, quiz });
-    onSubmit({ pricepool, quiz });
+    console.log("Quiz Submitted:", {
+      quizTitle,
+      pricepool,
+      entranceFee,
+      timer,
+      quiz,
+    });
+    console.log("Quiz Form Information Submitted:", {
+      quizTitle,
+      pricepool,
+      quizDescription,
+      entranceFee,
+      timer,
+      rewards,
+    });
+    onSubmit({ quizTitle, pricepool, entranceFee, timer, quiz });
   };
 
   return (

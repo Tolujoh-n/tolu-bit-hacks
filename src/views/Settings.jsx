@@ -1,5 +1,5 @@
 import React from "react";
-import AddQuestForm from "../components/AddQuizForm";
+import AddQuestForm from "../components/organizer/AddQuizForm";
 import Quizlist from "../components/organizer/Quizlist";
 import Editprofile from "../components/Editprofile";
 import Subscribe from "../components/Subscribe";
