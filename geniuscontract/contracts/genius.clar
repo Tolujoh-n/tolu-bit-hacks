@@ -1,13 +1,3 @@
-;; (impl-trait 'ST3QFME3CANQFQNR86TYVKQYCFT7QX4PRXM1V9W6H.sip009-nft-trait.sip009-nft-trait)
-
-;; (define-constant contract-owner tx-sender)
-;; (define-constant err-owner-only (err u100))
-;; (define-constant err-not-token-owner (err u101))
-;; (define-constant err-not-found (err u102))
-;; (define-constant err-unsupported-tx (err u103))
-;; (define-constant err-out-not-found (err u104))
-;; (define-constant err-in-not-found (err u105))
-;; (define-constant err-tx-not-mined (err u106))
 (define-data-var game-state (game (map game-id (tuple (quiz (list (tuple (question text) (options (list text)) (correct-answer int))) (entrance-fee uint))))))
 
 (define-public (create-quiz (quiz-id int) (quiz-questions (list (tuple (question text) (options (list text)) (correct-answer int)))) (entrance-fee uint))
