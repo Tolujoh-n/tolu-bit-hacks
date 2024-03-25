@@ -49,46 +49,85 @@
         (ft-mint? Genius-coin amount recipient)
     )
 )
+(define-data-var quiz-state (quiz (map quiz-id (tuple (quiz (list (tuple (question text) (options (list text)) (correct-answer int))) (entrance-fee uint))))))
 
-(define-data-var quiz-prize-pool (get-quiz-prize-pool) u128)
+(define-public (create-quiz (quiz-id int) (quiz-questions (list (tuple (question text) (options (list text)) (correct-answer int)))) (entrance-fee uint))
+  (if (verify-unique-quiz-id quiz-id)
+    (map-set quiz-state.quiz (to-principal tx-sender) (tuple (quiz quiz-questions) (entrance-fee entrance-fee)))
+    (err "Quiz ID already exists")))
 
-(define-data-var quiz-participants (get-quiz-participants) 
-  (list (tuple (participant (address)) (correct-answers int))))
+(define-read-only (verify-unique-quiz-id (quiz-id int))
+  (is-none (map-get quiz-state.quiz (int-to-principal quiz-id))))
 
-(define-public (create-quiz (prize-pool uint))
-  (ok (set-quiz-prize-pool prize-pool)))
+(define-public (enter-quiz (quiz-id int) (answers (list int)))
+  (let ((organizer (get-quiz-organizer quiz-id))
+        (quiz (get-quiz quiz-id)))
+    (if (none? organizer)
+      (ok false)  ; Organizer not found
+      (let ((participant (to-principal tx-sender)))
+        (if (verify-entrance-fee quiz-id)
+          (begin
+            ; Update quiz results
+            (map-set quiz-state.quiz organizer (update-quiz-results quiz answers))
+            ; Start the quiz by setting the start time or any other necessary logic
+            (ok true))
+          (ok false))))))
 
-(define-public (join-quiz (participant (address)) (entrance-fee uint))
-  (if (>= (get-balance participant) entrance-fee)
-    (begin
-      (transfer (contract-caller) entrance-fee)
-      (set-quiz-participants (append (get-quiz-participants) (tuple (participant participant) (correct-answers 0))))
-      (ok true))
-    (err "Insufficient funds to join quiz")))
+(define-public (join-and-start-quiz (quiz-id int) (answers (list int)))
+  (let ((organizer (get-quiz-organizer quiz-id))
+        (quiz (get-quiz quiz-id)))
+    (if (none? organizer)
+      (ok false)  ; Organizer not found
+      (let ((participant (to-principal tx-sender)))
+        (if (verify-entrance-fee quiz-id)
+          (begin
+            ; Update quiz results
+            (map-set quiz-state.quiz organizer (update-quiz-results quiz answers))
+            ; Start the quiz by setting the start time or any other necessary logic
+            (ok true))
+          (ok false))))))
 
-(define-public (answer-quiz (participant (address)) (answers int))
-  (ok
-    (map
-      (lambda (p)
-        (if (eq? (tuple-get p participant) participant)
-          (tuple-set p correct-answers (+ (tuple-get p correct-answers) answers))
-          p))
-      (get-quiz-participants))))
+(define-read-only (get-quiz-organizer (quiz-id int))
+  (match (map-get quiz-state.quiz (int-to-principal quiz-id))
+    ((ok organizer) organizer)
+    ((err _) none)))
 
-(define-public (distribute-rewards)
-  (let ((total-answers 0)
-        (winners (filter
-                   (lambda (p)
-                     (>= (tuple-get p correct-answers) 0)) ;; Change this condition based on quiz logic
-                   (get-quiz-participants))))
-    (for-each
-      (lambda (winner)
-        (set total-answers (+ total-answers (tuple-get winner correct-answers))))
-      winners)
-    (map
-      (lambda (winner)
-        (transfer (tuple-get winner participant)
-                  (udiv (* (get-quiz-prize-pool) (tuple-get winner correct-answers)) total-answers)))
-      winners)
-    (set-quiz-participants (list))
-    (ok true)))
+(define-read-only (get-quiz (quiz-id int))
+  (match (map-get quiz-state.quiz (int-to-principal quiz-id))
+    ((ok quiz) (tuple-get quiz 'quiz))
+    ((err _) none)))
+
+(define-read-only (verify-entrance-fee (quiz-id int))
+  (let ((quiz (get-quiz quiz-id)))
+    (if (is-none quiz)
+      false
+      (let ((entrance-fee (tuple-get quiz 'entrance-fee)))
+        (if (is-none entrance-fee)
+          false
+          (let ((caller-balance (get-balance (caller))))
+            (if (is-none caller-balance)
+              false
+              (if (>= (unwrap-uint caller-balance) (unwrap-uint entrance-fee))
+                true
+                false))))))))
+
+(define-private (update-quiz-results (quiz (list (tuple (question text) (options (list text)) (correct-answer int)))) (answers (list int)))
+  (let ((correct-answers (count-correct-answers quiz answers)))
+    (append correct-answers (list (length quiz)))))
+
+(define-private (count-correct-answers (quiz (list (tuple (question text) (options (list text)) (correct-answer int)))) (answers (list int)))
+  (map (lambda (question correct-answer)
+         (if (= (get-answer answers question) correct-answer) 1 0))
+       quiz
+       (get-correct-answers quiz)))
+
+(define-private (get-answer (answers (list int)) (question (tuple (question text) (options (list text)) (correct-answer int))))
+  (at-idx answers (get-index (tuple-get question 'question) (tuple-map (tuple-get question 'options) (ok 0)))))
+
+(define-private (get-index (element any) (list (list-of any)))
+  (match (list-find (lambda (x) (= x element)) list)
+    ((some index) index)
+    ((none _) -1)))
+
+(define-private (get-correct-answers (quiz (list (tuple (question text) (options (list text)) (correct-answer int)))))
+  (map (tuple-get _ correct-answer) quiz))
