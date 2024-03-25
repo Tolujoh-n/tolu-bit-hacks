@@ -1,12 +1,12 @@
 [project]
-name = 'geniuscontract'
+name = 'genius'
 description = ''
 authors = []
 telemetry = true
 cache_dir = '.\.cache'
 requirements = []
-[contracts.brain]
-path = 'contracts/brain.clar'
+[contracts.genius]
+path = 'contracts/genius.clar'
 clarity_version = 2
 epoch = 2.4
 
