@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/geniuslob.png";
-import Connect from "../components/walletconnect/Connect";
+import Connectwallet from "./walletconnect/Connectwallet";
 
 // import logo from "../assets/img/logo.png";
 
@@ -63,7 +63,7 @@ const Navbar = () => {
         </form>
       </div>
       <nav className="header-nav ms-auto">
-        <Connect />
+        <Connectwallet />
       </nav>
 
       {/* End Icons Navigation */}

@@ -3,13 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 
 const Quizcategory = ({ activeLink, setActive }) => {
   const quizcategory = [
-    { id: 1, name: "Home", icon: "bi-house" },
-    { id: 2, name: "Science", icon: "bi-binoculars" },
-    { id: 3, name: "Art", icon: "bi-palette" },
-    { id: 4, name: "Commerce", icon: "bi-cash" },
-    { id: 5, name: "Blockchain", icon: "bi-boxes" },
-    { id: 6, name: "History", icon: "bi-book" },
-    { id: 7, name: "Sport", icon: "bi-dribbble" },
+    { id: 1, name: "Science", icon: "bi-binoculars" },
+    { id: 2, name: "Art", icon: "bi-palette" },
+    { id: 3, name: "Commerce", icon: "bi-cash" },
+    { id: 4, name: "Blockchain", icon: "bi-boxes" },
+    { id: 5, name: "History", icon: "bi-book" },
+    { id: 6, name: "Sport", icon: "bi-dribbble" },
   ];
 
   const userlist = [
@@ -32,6 +31,12 @@ const Quizcategory = ({ activeLink, setActive }) => {
   return (
     <aside id="sidebar" className={`sidebar ${"ml-[300px]"}`}>
       <ul className="sidebar-nav" id="sidebar-nav">
+        <li className="nav-item">
+          <Link className="nav-link gap-1 collapsed" to="/">
+            <i className="bi bi-house"></i>
+            <span>Home</span>
+          </Link>
+        </li>
         {quizcategory.map((quiz) => (
           <li key={quiz.id} className="nav-item">
             <Link

@@ -9,6 +9,7 @@ import Topquiz from "./components/Topquiz";
 import Footer from "./components/Footer";
 import QuizInfo from "./components/QuizInfo";
 import Leaderboard from "./components/leaderboard/Leaderboard";
+import Connectwallet from "./components/walletconnect/Connectwallet";
 // Css files
 import "./assets/vendor/simple-datatables/style.css";
 import "./assets/vendor/remixicon/remixicon.css";
@@ -18,8 +19,6 @@ import "./assets/vendor/boxicons/css/boxicons.min.css";
 import "./assets/vendor/bootstrap-icons/bootstrap-icons.css";
 import "./assets/vendor/bootstrap/css/bootstrap.min.css";
 import "./assets/css/style.css";
-
-// importing web3 instance
 
 const App = () => {
   const [activeLink, setActiveLink] = useState("");
@@ -52,6 +51,7 @@ const App = () => {
           </section>
         </main>
       </Router>
+      <Connectwallet />
       <Footer />
     </div>
   );

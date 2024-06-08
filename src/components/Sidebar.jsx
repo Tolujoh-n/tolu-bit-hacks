@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { ethers } from "ethers";
 import { Link } from "react-router-dom";
-import stx from "../assets/img/stacks.png";
-import btc from "../assets/img/btc.png";
+import theta from "../assets/img/theta.jpg";
+import tfuel from "../assets/img/tfuel.jpg";
 import useimage from "../assets/address.jpg";
 import Modal from "./Modal";
 
@@ -15,6 +16,27 @@ const Ongoinggm = [
 
 const Sidebar = () => {
   const [isGamemodalOpen, setIsGamemodalOpen] = useState(false);
+  const [thetaBalance, setThetaBalance] = useState("0");
+  const [tfuelBalance, setTfuelBalance] = useState("0");
+
+  useEffect(() => {
+    const fetchBalances = async () => {
+      if (window.ethereum && window.ethereum.selectedAddress) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const address = window.ethereum.selectedAddress;
+
+        // Fetch THETA balance
+        const thetaBalance = await provider.getBalance(address);
+        setThetaBalance(ethers.utils.formatEther(thetaBalance));
+
+        // Fetch TFUEL balance (Using TFUEL endpoint)
+        const tfuelBalance = await provider.getBalance(address, "latest");
+        setTfuelBalance(ethers.utils.formatEther(tfuelBalance));
+      }
+    };
+
+    fetchBalances();
+  }, []);
 
   const handleGamemodalClick = () => {
     setIsGamemodalOpen(true);
@@ -23,6 +45,7 @@ const Sidebar = () => {
   const handleCloseGamemodal = () => {
     setIsGamemodalOpen(false);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // claim
@@ -38,21 +61,19 @@ const Sidebar = () => {
             <h5 className="card-title">Balance:</h5>
             <div className="d-flex align-items-center">
               <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                {/* <i className="fas fa-dollar-sign"></i>  */}
-                <img id="balance" src={stx} alt="" />
+                <img id="balance" src={theta} alt="" />
               </div>
               <div className="ps-3">
-                <h6>0 STX</h6>
+                <h6>{thetaBalance} THETA</h6>
               </div>
             </div>
             <hr />
             <div className="d-flex align-items-center">
               <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                {/* <i className="fas fa-dollar-sign"></i>  */}
-                <img id="balance" src={btc} alt="" />
+                <img id="balance" src={tfuel} alt="" />
               </div>
               <div className="ps-3">
-                <h6>0 BTC</h6>
+                <h6>{tfuelBalance} TFUEL</h6>
               </div>
             </div>
           </div>
@@ -81,14 +102,11 @@ const Sidebar = () => {
                   </h4>
                   <p>
                     <div className="d-flex justify-content-between align-items-center">
-                      {/* First word with icon */}
                       <div>
                         <span style={{ color: "#b1bad3" }}>
-                          {" "}
                           Quiz Won: {card.level}
                         </span>
                       </div>
-                      {/* Second word */}
                       <div>
                         <button onClick={handleGamemodalClick} id="followbtn">
                           Follow
@@ -99,7 +117,6 @@ const Sidebar = () => {
                 </div>
               ))}
             </div>
-
             {/* End sidebar recent posts */}
           </div>
         </div>
